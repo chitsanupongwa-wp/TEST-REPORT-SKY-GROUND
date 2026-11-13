@@ -595,6 +595,34 @@ input[type=text]:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(18,
 .gc::after{content:'↗';flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:#f3f3f3;color:#444;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1}
 @media(min-width:900px){.hm-wide .gc .gn{width:54px;height:54px;min-width:54px!important;font-size:28px!important}.gc::after{width:42px;height:42px;font-size:20px}}
 @media(max-width:639px){.gc::after{display:none!important}.hm-wide .gc{padding:10px 12px!important;gap:10px}.hm-wide .gc .gn{width:38px!important;height:38px!important;min-width:38px!important;font-size:19px!important}.hm-wide .gc b{font-size:20px!important;line-height:1.05;min-width:0}}
+
+/* ---- ITP Status panel on home (was tile 7) ---- */
+.stw{margin-top:16px;background:#fff;border-radius:24px;padding:18px 16px 12px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 16px rgba(0,0,0,.05)}
+.sth{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:14px}
+.sth .gbar{width:46px;height:5px;margin-bottom:8px}
+.sth h2{margin:0;font-size:22px;font-weight:700;color:#1d2430}
+.stb{font:inherit;font-size:14px;font-weight:600;color:#fff;background:#12874f;border:0;border-radius:999px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 12px rgba(18,135,79,.28)}
+.stb:active{transform:translateY(1px)}
+.sts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(min-width:720px){.sts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stc{border-radius:18px;padding:12px 16px;background:#f5f6f5;display:flex;flex-direction:column;gap:2px}
+.stc span{font-size:13px;color:#6b7684;font-weight:500}.stc b{font-size:30px;line-height:1.1;font-weight:700;color:#1d2430}
+.stc.p b{color:#12874f}.stc.f b{color:#d93025}.stc.w b{color:#b06f00}
+.stl{margin-top:8px}
+.str{display:grid;grid-template-columns:36px 1fr auto;grid-template-areas:"n x p" "n d1 d2";gap:2px 12px;align-items:center;padding:12px 0;border-top:1px solid #eef0ee}
+.str:first-child{border-top:0}
+.stn{grid-area:n;width:36px;height:36px;border-radius:50%;background:#12874f;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.stx{grid-area:x;min-width:0;display:flex;flex-direction:column}.stx b{font-size:14px;letter-spacing:-.2px;font-weight:600;word-break:break-all;line-height:1.25}.stx small{font-size:13px;color:#6b7684}
+.std{font-size:13.5px;color:#1d2430}.std small{color:#8a94a3;margin-right:5px}
+.str .d1{grid-area:d1}.str .d2{grid-area:d2;text-align:right}
+.stp{grid-area:p;font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 12px;justify-self:end}
+.stp.Passed{background:#e3f4ea;color:#12874f}.stp.Failed{background:#fce8e6;color:#d93025}.stp.Waiting{background:#fff4e0;color:#b06f00}
+.ste{padding:22px 4px;text-align:center;color:#8a94a3;font-size:14px}
+@media(min-width:720px){
+ .str{grid-template-columns:44px minmax(0,1.6fr) 1fr 1fr auto;grid-template-areas:"n x d1 d2 p";gap:12px 18px;padding:14px 0}
+ .stn{width:44px;height:44px}.stx b{font-size:17px}.std{font-size:15px}.std small{display:block;margin:0}.str .d2{text-align:left}
+ .stw{padding:24px 28px 14px}.sth h2{font-size:28px}
+}
 </style>
 </head>
 <body>
@@ -927,10 +955,22 @@ function docStatus(id,sid){if(LS.get('itp_done_'+id))return 'done';const st=save
 const GWAVE='<svg class="gw" viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M0 60 C70 58 120 40 200 10 V60Z" fill="rgba(120,220,110,.55)"/><path d="M30 60 C100 56 150 40 200 26 V60Z" fill="rgba(160,240,140,.35)"/></svg>';
 function gcard(attrs,num,title,stt,sub){return `<button class="gc ${stt}" ${attrs}><span class="gn">${num}</span><b>${title}</b>${sub?`<small>${sub}</small>`:''}${GWAVE}</button>`}
 const LEGEND=`<div class="glg"><span><i class="sw prog"></i>In Progress</span><span><i class="sw done"></i>Completed</span><span><i class="sw pend"></i>Pending</span></div>`;
+const stFmt=v=>{const x=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||'');return x?`${x[3]}/${x[2]}/${x[1]}`:'–'};
+function statusHTML(){
+  let m={};try{m=allStatus()}catch(e){}
+  const ord=Object.keys(FORMS);
+  const rows=Object.entries(m).sort((a,b)=>(ord.indexOf(a[1].form)-ord.indexOf(b[1].form))||a[0].localeCompare(b[0],'en',{numeric:true}));
+  const n={Passed:0,Failed:0,Waiting:0};rows.forEach(([,r])=>{if(n[r.status]!=null)n[r.status]++});
+  const stat=(k,l,c)=>`<div class="stc ${c}"><span>${l}</span><b>${k}</b></div>`;
+  const body=rows.length?rows.map(([rfi,r])=>`<div class="str"><span class="stn">${TILE_ORDER.indexOf(r.form)+1||'•'}</span><div class="stx"><b>${esc(rfi)}</b><small>${esc(TT2[r.form]||r.form)}</small></div><div class="std d1"><small>Test date</small>${stFmt(r.date)}</div><div class="std d2"><small>Sent</small>${stFmt(r.sent)}</div><span class="stp ${esc(r.status)}">${esc(r.status)}</span></div>`).join(''):`<div class="ste">ยังไม่มีข้อมูล — เริ่มกรอกฟอร์มแล้วสถานะจะแสดงที่นี่</div>`;
+  return `<section class="stw"><div class="sth"><div><i class="gbar"></i><h2>ITP Status</h2></div><button class="stb" data-act="itp7">↓ Excel</button></div>
+  <div class="sts">${stat(rows.length,'Total','t')}${stat(n.Passed,'Passed','p')}${stat(n.Failed,'Failed','f')}${stat(n.Waiting,'Waiting','w')}</div>
+  <div class="stl">${body}</div></section>`;
+}
 function homeHTML(){
   return `<div class="hm hm-wide"><div class="hcover"><div class="gh gh3"><img src="${HERO2}" alt="Sky Ground Residence 38"><div class="gh-top"><div class="hm-proj">SKY GROUND RESIDENCE 38</div></div>
   <div class="gh-txt"><div class="h1">ITP</div><div class="h2">Inspection &amp; Test Record</div><i class="gbar lt"></i><div class="h3">M&amp;E System</div></div></div>
-  <div class="gg">${TILE_ORDER.map((id,i)=>{const f=FORMS[id];return gcard(`data-form="${id}" data-doc="all"`,i+1,TT2[id],formStatus(id),'')}).join('')}${gcard('data-act="itp7"',7,'ITP Status','pend','')}</div></div></div>`}
+  <div class="gg">${TILE_ORDER.map((id,i)=>{const f=FORMS[id];return gcard(`data-form="${id}" data-doc="all"`,i+1,TT2[id],formStatus(id),'')}).join('')}</div></div>${statusHTML()}</div>`}
 function openDocs(id){const f=FORMS[id];$('#docBox').innerHTML=`<div class="mh"><b>${f.name}</b><button class="btn sm" data-act="close">ปิด</button></div><div class="hint" style="margin:-4px 0 10px">${f.th}</div><div class="mlist"><div class="sub" style="border:0"><button class="si all" data-form="${id}" data-doc="all"><span class="sd"></span><span class="st"><b>เปิดทั้งชุด</b><em>กรอกทุกเอกสารในหน้าเดียว</em></span><span class="ar">›</span></button>${f.sheets.map((sh,i)=>`<button class="si" data-form="${id}" data-doc="${sh.id}"><span class="sd">${i+1}</span><span class="st"><b>${sh.name}</b><em>${sh.doc}</em></span><span class="ar">›</span></button>`).join('')}</div></div>`;$('#mDocs').classList.add('on')}
 const SHORT={IRP:'Power Wire IR Test',IRC:'Control Wire IR Test',DR:'Drain Pipe Test',PT:'Refrigerant Pressure Test',DUI:'Ducting & Insulation',TR:'AC Mini Split Test'};
 let VIEW='home';
