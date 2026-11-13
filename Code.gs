@@ -24,10 +24,13 @@ function doPost(e) {
   try { body = JSON.parse(e.postData.contents); } catch (err) {}
   // LINE webhook
   if (body.events) { handleLineWebhook_(body.events); return ContentService.createTextOutput('OK'); }
-  // Form submit from an externally hosted page
+  // Form submit / external results from an externally hosted page
   try {
     const key = PROPS.getProperty('API_KEY');
     if (key && body.key !== key) throw new Error('API key ไม่ถูกต้อง');
+    if (body.action === 'getExternal') return json_(getExternal());
+    if (body.action === 'saveExternal') return json_(saveExternal(body));
+    if (body.action === 'deleteExternal') return json_(deleteExternal(body));
     return json_(submitReport(body));
   } catch (err) {
     return json_({ ok: false, error: String(err.message || err) });
@@ -142,6 +145,63 @@ function getFolder_() {
 }
 
 function json_(o) { return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON); }
+
+/* ============ External results (work checked outside the form) ============
+ * Each RFI can have files attached (PDF / photo / Excel …) + a status.
+ * Files  → Drive: ITP Test Reports / Attachments
+ * Status → Drive: ITP Test Reports / itp_external.json (shared by everyone)
+ */
+function extFile_() {
+  const f = getFolder_(), it = f.getFilesByName('itp_external.json');
+  return it.hasNext() ? it.next() : f.createFile('itp_external.json', '{}', 'application/json');
+}
+function extRead_() { try { return JSON.parse(extFile_().getBlob().getDataAsString() || '{}'); } catch (e) { return {}; } }
+function extWrite_(o) { extFile_().setContent(JSON.stringify(o)); }
+function attFolder_() {
+  const f = getFolder_(), it = f.getFoldersByName('Attachments');
+  return it.hasNext() ? it.next() : f.createFolder('Attachments');
+}
+function rfiKey_(v) { return String(v || '').trim().toUpperCase().replace(/\s+/g, ''); }
+
+/** google.script.run.getExternal() */
+function getExternal() { return { ok: true, records: extRead_() }; }
+
+/** google.script.run.saveExternal({rfi, status, date, sent, note, item, floor, form, by, files:[{name,type,size,data(base64)}], remove:[fileId]}) */
+function saveExternal(p) {
+  const lock = LockService.getScriptLock(); lock.waitLock(20000);
+  try {
+    const rfi = rfiKey_(p && p.rfi);
+    if (!rfi) throw new Error('ไม่มีเลข RFI');
+    const all = extRead_(), rec = all[rfi] || { files: [] };
+    const rm = p.remove || [];
+    rec.files = (rec.files || []).filter(function (f) {
+      if (rm.indexOf(f.id) > -1) { try { DriveApp.getFileById(f.id).setTrashed(true); } catch (e) {} return false; }
+      return true;
+    });
+    const folder = attFolder_();
+    (p.files || []).forEach(function (f) {
+      const blob = Utilities.newBlob(Utilities.base64Decode(f.data), f.type || 'application/octet-stream', rfi + '_' + f.name);
+      const file = folder.createFile(blob);
+      try { file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW); } catch (e) {}
+      rec.files.push({ id: file.getId(), name: f.name, type: f.type || '', size: f.size || blob.getBytes().length, url: file.getUrl() });
+    });
+    ['status', 'date', 'sent', 'note', 'item', 'floor', 'form', 'by'].forEach(function (k) { rec[k] = p[k] || ''; });
+    rec.at = new Date().toISOString();
+    all[rfi] = rec; extWrite_(all);
+    return { ok: true, records: all };
+  } finally { lock.releaseLock(); }
+}
+
+/** google.script.run.deleteExternal({rfi}) – removes the record and trashes its files */
+function deleteExternal(p) {
+  const lock = LockService.getScriptLock(); lock.waitLock(20000);
+  try {
+    const rfi = rfiKey_(p && p.rfi), all = extRead_(), rec = all[rfi];
+    if (rec) (rec.files || []).forEach(function (f) { try { DriveApp.getFileById(f.id).setTrashed(true); } catch (e) {} });
+    delete all[rfi]; extWrite_(all);
+    return { ok: true, records: all };
+  } finally { lock.releaseLock(); }
+}
 
 /** Run once from the editor to grant Drive / Gmail / external-request permissions */
 function setup() {

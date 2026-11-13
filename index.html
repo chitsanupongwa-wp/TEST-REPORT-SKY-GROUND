@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ITP Test Form – Sky Ground Residence</title>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
@@ -690,6 +690,161 @@ body.onhome{background:#e6ebf0!important}
 .stt tr.it:hover td{background:#fafdfc}
 .ste{padding:26px;text-align:center;color:var(--mu);font-size:14px}
 .stt tr[hidden]{display:none}
+
+/* external attach */
+.acw{display:flex;gap:6px;justify-content:center}
+.act.att{position:relative;font-size:14px}
+.act.att.has{background:#e6f6f2;border-color:#9ee3d7}
+.act.att sup{position:absolute;top:-6px;right:-6px;min-width:17px;height:17px;border-radius:9px;background:#0e9f8e;color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.src{display:block;margin-top:3px;font-size:10.5px;font-weight:600;letter-spacing:.3px;color:#8a94a3;text-transform:uppercase}
+.src.file{color:#7a5af5}
+.ex-box{max-width:520px}
+.ex-rf{background:#f4f7f9;border-radius:10px;padding:10px 12px;margin-bottom:10px;display:flex;flex-direction:column;gap:2px}
+.ex-rf b{font-size:15px}.ex-rf span{font-size:13.5px;color:#5f6b7a}
+.ex-rs{max-width:none!important}
+.ex-rs .chip.NA:has(input:checked){background:#e9a315;border-color:#e9a315}
+.ex-files{display:flex;flex-direction:column;gap:6px}
+.ex-f{display:flex;align-items:center;gap:8px;border:1px solid #e3e8ed;border-radius:10px;padding:7px 10px;background:#fff}
+.ex-f.rm{opacity:.45}.ex-f.rm .nm{text-decoration:line-through}
+.ex-f .i{font-size:18px}
+.ex-f .nm{flex:1;min-width:0;text-align:left;border:0;background:none;font:inherit;font-size:14px;color:#16708f;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0}
+.ex-f small{color:#8a94a3;font-size:12px;white-space:nowrap}
+.ex-f .x{border:0;background:#f4f6f8;border-radius:8px;width:28px;height:28px;cursor:pointer;color:#b3261e}
+.ex-btns{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px;margin-top:14px}.ex-btns .btn{height:44px}
+#mExt input[type=date]{height:46px}
+
+/* ===== axiom-style dashboard ===== */
+body.onhome{background:#e9ecef!important}
+.ax{--ac:#ffd60a;--ink:#141414;display:grid;grid-template-columns:250px minmax(0,1fr);gap:10px;max-width:1440px;margin:18px auto;padding:10px;background:#141414;border-radius:30px;font-family:'Plus Jakarta Sans','Sarabun',sans-serif;box-shadow:0 30px 60px rgba(0,0,0,.18)}
+.axs{color:#d7d7d7;padding:14px 10px 12px;display:flex;flex-direction:column;gap:14px;position:sticky;top:10px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;scrollbar-width:none}
+.axs::-webkit-scrollbar{display:none}
+.axlogo{display:flex;align-items:center;gap:10px;padding:2px 6px}
+.axlogo i{width:34px;height:34px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center}
+.axlogo i svg{width:22px;height:22px}
+.axlogo b{color:#fff;font-size:18px;font-weight:700}.axlogo small{margin-left:auto;font-size:11px;color:#8b8b8b;border:1px solid #333;border-radius:6px;padding:2px 6px}
+.axq{display:flex;align-items:center;gap:8px;background:#242424;border:1px solid #2e2e2e;border-radius:999px;padding:0 12px;height:42px}
+.axq svg{width:16px;height:16px;color:#9a9a9a;flex:0 0 auto}
+.axq input{background:none!important;border:0!important;color:#fff!important;font:inherit!important;font-size:13.5px!important;height:auto!important;padding:0!important;flex:1;min-width:0;box-shadow:none!important;outline:none}
+.axq kbd{font-family:inherit;font-size:11px;color:#bdbdbd;background:#333;border-radius:6px;padding:2px 6px}
+.axm{display:flex;flex-direction:column;gap:3px}
+.axm h6{margin:12px 8px 6px;font-size:10.5px;font-weight:600;letter-spacing:1px;color:#7d7d7d;text-transform:uppercase}
+.axm h6:first-child{margin-top:2px}
+.axm button{display:flex;align-items:center;gap:11px;border:0;background:none;color:#d2d2d2;font:inherit;font-size:13.5px;font-weight:500;padding:10px 12px;border-radius:12px;cursor:pointer;text-align:left;transition:background .15s,color .15s}
+.axm button svg{width:18px;height:18px;flex:0 0 auto}
+.axm button span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.axm button em{font-style:normal;font-size:11px;color:#141414;background:var(--ac);border-radius:6px;padding:1px 6px;font-weight:700}
+.axm button:hover{background:#232323;color:#fff}
+.axm button.on{background:var(--ac);color:#141414;font-weight:600}
+.axev{position:relative;margin-top:auto;background:#232323;border:1px solid #2e2e2e;border-radius:16px;padding:14px 14px 14px}
+.axev h6{margin:0 0 8px;font-size:10.5px;letter-spacing:1px;color:#8b8b8b;text-transform:uppercase}
+.axev b{display:block;color:#fff;font-size:14.5px;font-weight:700;padding-right:34px}
+.axev p{margin:4px 0 10px;font-size:12px;color:#b5b5b5;line-height:1.4}
+.axev .tg{display:flex;gap:6px;flex-wrap:wrap}.axev .tg span{font-size:11px;font-weight:600;color:#7be37b;background:#1f3a1f;border-radius:6px;padding:2px 7px}
+.axev .tg span+span{color:#ffe36b;background:#3b3414}
+.axev .go{position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:50%;border:0;background:var(--ac);color:#141414;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.axev .go:hover{transform:translateX(2px)}.axev .go svg{width:17px;height:17px}
+.axmn{background:#fff;border-radius:22px;padding:24px 24px 26px;min-width:0;color:#141414}
+.axtop{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.axtop h1{margin:0;font-size:30px;font-weight:700;letter-spacing:-.4px}
+.axtop p{margin:6px 0 0;color:#6b6b6b;font-size:14px}
+.axtr{display:flex;align-items:center;gap:10px}
+.axr{width:42px;height:42px;border-radius:50%;border:1px solid #e7e7e7;background:#fff;color:#141414;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
+.axr:hover{background:#f4f4f4}.axr svg{width:19px;height:19px}
+.axu{display:flex;align-items:center;gap:10px;margin-left:6px}
+.axu .av{width:42px;height:42px;border-radius:50%;background:#141414;color:var(--ac);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.axu b{display:block;font-size:14px}.axu small{color:#7a7a7a;font-size:12px}
+.axks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:22px}
+.axk{border:1px solid #ececec;background:#fff;border-radius:16px;padding:14px 16px;text-align:left;font:inherit;color:inherit;cursor:pointer;transition:box-shadow .15s,transform .15s}
+.axk:hover{box-shadow:0 8px 20px rgba(0,0,0,.07);transform:translateY(-2px)}
+.axkh{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#444;font-weight:500}
+.axkh i{width:30px;height:30px;border-radius:50%;border:1px solid #e7e7e7;display:flex;align-items:center;justify-content:center}.axkh i svg{width:16px;height:16px}
+.axk>b{display:block;font-size:30px;font-weight:700;margin:8px 0 6px;letter-spacing:-.5px}
+.axk p{margin:0;font-size:12px;color:#7a7a7a}
+.dl{display:inline-flex;align-items:center;gap:3px;font-weight:600;border-radius:4px;padding:0 4px}
+.dl.up{color:#1f9d39;background:#e6f6ea}.dl.dn{color:#d63a2f;background:#fde8e6}.dl.wt{color:#b07900;background:#fff3cf}
+.axg{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);grid-template-areas:"ch col" "src col";gap:14px;margin-top:14px}
+.axc{border:1px solid #ececec;border-radius:16px;padding:16px 18px;background:#fff;min-width:0}
+.axc-ch{grid-area:ch}.axcol{grid-area:col;display:flex;flex-direction:column;gap:14px;min-width:0}.axc-src{grid-area:src}
+.axh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.axh h3{margin:0;font-size:17px;font-weight:700}
+.axsel{font-size:12.5px;color:#444;border:1px solid #e7e7e7;border-radius:8px;padding:5px 10px}
+.axch{display:flex;gap:10px;height:250px;margin-top:16px}
+.axy{display:flex;flex-direction:column;justify-content:space-between;font-size:11px;color:#8a8a8a;padding-bottom:22px;text-align:right;min-width:18px}
+.axbars{flex:1;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:end}
+.axb{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;cursor:pointer}
+.axb .trk{position:relative;width:100%;max-width:46px;background:#f2f2ee;border-radius:6px;display:flex;flex-direction:column-reverse;overflow:hidden;min-height:6px}
+.axb .fl{display:block;width:100%;flex:0 0 auto}
+.axb .fl.p{background:var(--ac)}.axb .fl.w{background:#ffeb85}.axb .fl.f{background:#ff8a7a}
+.axb>span{margin-top:8px;font-size:11.5px;color:#555;white-space:nowrap;height:14px}
+.axb .tip{position:absolute;bottom:calc(100% - 6px);left:50%;transform:translate(-50%,6px);opacity:0;pointer-events:none;background:#141414;color:#fff;border-radius:10px;padding:8px 10px;display:grid;grid-template-columns:repeat(2,auto);gap:4px 12px;transition:opacity .15s,transform .15s;z-index:3;white-space:nowrap}
+.axb .tip small{display:block;font-size:10px;color:#a8a8a8}.axb .tip b{font-size:13px}
+.axb:hover .tip{opacity:1;transform:translate(-50%,0)}
+.axb:hover .trk{box-shadow:0 0 0 2px #141414 inset}
+.axlg{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:#555}
+.axlg span{display:flex;align-items:center;gap:6px}.axlg i{width:10px;height:10px;border-radius:3px}
+.axlg i.p{background:var(--ac)}.axlg i.w{background:#ffeb85}.axlg i.f{background:#ff8a7a}.axlg i.t{background:#f2f2ee;border:1px solid #e3e3dc}
+.axnav{display:flex;gap:6px}.axnav button{width:30px;height:30px;border-radius:50%;border:1px solid #e7e7e7;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}.axnav svg{width:15px;height:15px}
+.axwk{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:14px}
+.axd{position:relative;border:0;background:none;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:8px;padding:4px 0;color:#141414}
+.axd small{font-size:11.5px;color:#555}
+.axd b{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:600;transition:background .15s}
+.axd:hover b{background:#f3f3f3}
+.axd.td b{background:var(--ac)}
+.axd.sel b{background:#141414;color:#fff}
+.axd i{position:absolute;bottom:-2px;width:5px;height:5px;border-radius:50%;background:#1f9d39}
+.axx{border:0;background:#f3f3f3;border-radius:8px;width:28px;height:28px;cursor:pointer}
+.axl{display:flex;flex-direction:column;margin-top:8px}
+.axi{display:grid;grid-template-columns:22px 92px 1fr;gap:12px;align-items:center;border:0;background:none;font:inherit;color:inherit;text-align:left;padding:10px 8px;border-radius:12px;cursor:pointer}
+.axi:hover{background:#f7f7f5}
+.axi .ck{width:22px;height:22px;border-radius:6px;border:1.5px solid #cfcfcf;display:flex;align-items:center;justify-content:center}
+.axi .ck svg{width:15px;height:15px}
+.axi .ck.Passed{background:#141414;border-color:#141414;color:var(--ac)}.axi .ck.Waiting{border-color:#e0b000;color:#b07900}.axi .ck.Failed{border-color:#e05a4c;color:#d63a2f}
+.axi .when small{display:block;font-size:11px;color:#8a8a8a}.axi .when b{font-size:13.5px;font-weight:600}
+.axi .what{min-width:0}.axi .what b{display:block;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.axi .what small{display:block;font-size:11.5px;color:#8a8a8a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.axe{font-size:13px;color:#8a8a8a;padding:18px 4px 6px;line-height:1.5}
+.axsr{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:14px}
+.axsr small{font-size:13px;color:#444}
+.axsr b{display:block;font-size:32px;font-weight:700;margin:4px 0 12px;letter-spacing:-.5px}
+.axsr .bar{height:40px;background:#f2f2ee;border-radius:8px;overflow:hidden}.axsr .bar i{display:block;height:100%;background:var(--ac);border-radius:8px;min-width:2px}
+.axsr p{margin:8px 0 0;font-size:12px;color:#7a7a7a}.axsr .up{color:#1f9d39;font-weight:700}
+.axmn .dc-t{margin-top:14px;border:1px solid #ececec;border-radius:16px;box-shadow:none}
+.axmn .xb{background:#141414!important;color:var(--ac)!important}
+.axmn .chipf.on{background:#141414!important;color:var(--ac)!important;border-color:#141414!important}
+@media(max-width:1100px){.axks{grid-template-columns:repeat(2,minmax(0,1fr))}.axg{grid-template-columns:1fr;grid-template-areas:"ch" "col" "src"}}
+@media(max-width:860px){.ax{grid-template-columns:1fr;margin:0;border-radius:0;padding:8px}.axs{position:static;max-height:none;padding:8px 6px 4px}.axm{flex-direction:row;overflow-x:auto;gap:6px;scrollbar-width:none}.axm::-webkit-scrollbar{display:none}.axm h6{display:none}.axm button{flex:0 0 auto;background:#232323;border-radius:999px;padding:8px 12px}.axm button span{overflow:visible}.axev{margin-top:0}.axmn{padding:18px 14px;border-radius:18px}.axtop h1{font-size:23px}.axu div{display:none}.axch{height:210px}.axbars{gap:6px}.axb>span{font-size:10px}.axsr b{font-size:24px}}
+
+.ax>.axmn{margin:0!important;max-width:none!important;width:auto}
+.axmn .dc-h{flex-wrap:wrap;gap:10px}
+
+.axmn .dc-h h3{color:#141414!important;font-size:17px!important;font-weight:700!important;font-family:inherit}
+.axmn .stt .fl{color:#141414!important}
+.axmn .stt tr.sc td{background:#fff8d6!important;color:#141414!important;font-weight:700}
+.axmn .gn2{background:var(--ac)!important;color:#141414!important}
+.axmn .open{background:#141414!important;color:var(--ac)!important;border-color:#141414!important}
+.axmn .stt thead th{background:#fafaf8!important;color:#141414}
+.axmn .act:hover{background:#fff3b0;border-color:#f0d24a}
+.axmn .act.att.has{background:#fff3b0;border-color:#f0d24a}
+.axmn .act.att sup{background:#141414;color:var(--ac)}
+.axmn .chipf{font-family:inherit}
+
+/* green accent instead of yellow */
+.ax{--ac:#0e9f8e;--ac2:#e6f6f2;--acw:#9fe0d6}
+.axm button.on{color:#fff}
+.axm button em{color:#fff}
+.axev .go{color:#fff}
+.axev .tg span{color:#7fe3d3;background:#103a35}.axev .tg span+span{color:#bfeee6;background:#1d2f2d}
+.axd.td b{color:#fff}
+.axb .fl.w{background:var(--acw)}.axlg i.w{background:var(--acw)}
+.axb .trk{background:#f1f4f3}
+.axi .ck.Passed{background:var(--ac);border-color:var(--ac);color:#fff}
+.axmn .xb{background:var(--ac)!important;color:#fff!important}
+.axmn .chipf.on{background:var(--ac)!important;color:#fff!important;border-color:var(--ac)!important}
+.axmn .stt tr.sc td{background:var(--ac2)!important;color:#0b6f63!important}
+.axmn .gn2{color:#fff!important}
+.axmn .open{background:var(--ac2)!important;color:#0b6f63!important;border-color:#9ee3d7!important}
+.axmn .act:hover,.axmn .act.att.has{background:var(--ac2);border-color:#9ee3d7}
+.axmn .act.att sup{background:var(--ac);color:#fff}
+.axsr .bar{background:#f1f4f3}
 </style></style>
 </head>
 <body>
@@ -1075,7 +1230,7 @@ function statusHTML(d){
   const m=d.m,e=0;
   const row=(rfi,item,fl,i,fid)=>{const r=m[rfiNorm(rfi)],st=r?r.status:'Pending';
     const cs=Array(12).fill('');if(r){cs[5]=stFmt(r.date);cs[9]=stFmt(r.sent)}
-    return `<tr class="it" data-st="${st}" data-q="${esc((rfi+' '+(item||'')+' '+(fl||'')+' '+st).toLowerCase())}"><td class="c">${i}</td><td class="rf">${esc(rfi)}</td><td class="itm">${esc(item||'')}</td><td class="c fl">${esc(fl||'')}</td>${cs.map(v=>`<td class="dt">${v}</td>`).join('')}<td class="c"><span class="stp ${st}">${st}</span></td><td class="c">${fid?`<button class="act" data-form="${fid}" data-doc="all" title="เปิดฟอร์ม">↗</button>`:''}</td></tr>`};
+    return `<tr class="it" data-st="${st}" data-q="${esc((rfi+' '+(item||'')+' '+(fl||'')+' '+st+' '+(r&&r.src==='file'?'file external':'')).toLowerCase())}"><td class="c">${i}</td><td class="rf">${esc(rfi)}</td><td class="itm">${esc(item||'')}</td><td class="c fl">${esc(fl||'')}</td>${cs.map(v=>`<td class="dt">${v}</td>`).join('')}<td class="c"><span class="stp ${st}">${st}</span>${r&&r.src?`<small class="src ${r.src}">${r.src==='file'?'File':'Form'}</small>`:''}</td><td class="c"><div class="acw">${fid?`<button class="act" data-form="${fid}" data-doc="all" title="เปิดฟอร์ม">↗</button>`:''}<button class="act att${EXT[rfiNorm(rfi)]?' has':''}" data-att="${esc(rfi)}" data-item="${esc(item||'')}" data-fl="${esc(fl||'')}" title="แนบผลจากภายนอก">📎${(EXT[rfiNorm(rfi)]&&(EXT[rfiNorm(rfi)].files||[]).length)?`<sup>${EXT[rfiNorm(rfi)].files.length}</sup>`:''}</button></div></td></tr>`};
   const grpHead=(t,fid,a,b)=>`<tr class="gc2"><td colspan="18"><div class="gx2">${fid?`<span class="gn2">${TILE_ORDER.indexOf(fid)+1}</span>`:''}<b>${esc(t)}</b>${b?`<small>${a}/${b} done</small>`:''}${fid?`<button class="open" data-form="${fid}" data-doc="all">เปิดฟอร์ม <span>↗</span></button>`:''}</div></td></tr>`;
   let body='';
   ST_PLAN.forEach(s=>{body+=`<tr class="sc"><td colspan="18">${esc(s.t)}</td></tr>`;
@@ -1088,25 +1243,80 @@ function statusHTML(d){
   return `<div class="dc dc-t" id="stw"><div class="dc-h"><h3>ITP Status</h3><div class="tb"><label class="sq">${IC.search}<input id="stQ" type="text" placeholder="Search RFI / item…" autocomplete="off"></label><button class="xb" data-act="itp7">${IC.xls} Excel</button></div></div>
   <div class="chips2">${chip('All','All')}${chip('Passed','Passed')}${chip('Waiting','Waiting')}${chip('Failed','Failed')}${chip('Pending','Pending')}</div>
   <div class="stsc"><table class="stt"><thead><tr><th rowspan="2" class="c">No.</th><th rowspan="2">RFI No.</th><th rowspan="2">Inspection / Test Item</th><th rowspan="2" class="c">Floor</th><th colspan="2">Work Completion</th><th colspan="2">Request for Inspection (RFI)</th><th colspan="2">Inspection / Test</th><th colspan="2">Re-Inspection</th><th colspan="2">Test Report Submission</th><th colspan="2">Approval / Sign-off</th><th rowspan="2">Status</th><th rowspan="2">Action</th></tr><tr>${pr}${pr}${pr}${pr}${pr}${pr}</tr></thead><tbody>${body}</tbody></table><div class="ste" id="stE" hidden>ไม่พบรายการที่ตรงกับตัวกรอง</div></div></div>`}
+let CALW=0,CALSEL='';
+const DOW=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const SHORTN={IRP:'Power IR',IRC:'Control IR',DR:'Drain',PT:'Pressure',TR:'AC Split',DUI:'Duct'};
+const AXI={
+ grid:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>',
+ list:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>',
+ doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
+ xls:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>',
+ sync:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 00-14.9-3M4 13a8 8 0 0014.9 3"/><path d="M4 4v4h4M20 20v-4h-4"/></svg>',
+ users:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>',
+ ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.3l2.4 2.4 4.6-5"/></svg>',
+ clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+ warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l9 16H3z"/><path d="M12 10v4M12 17v.1"/></svg>',
+ arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+ chev:d=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${d<0?'M15 6l-6 6 6 6':'M9 6l6 6-6 6'}"/></svg>`
+};
+function planRows(){const o=[];ST_PLAN.forEach(s=>s.g.forEach(g=>g.r.forEach(r=>o.push({rfi:r[0],item:r[1],fl:r[2],form:formOfRfi(r[0])}))));return o}
+function nextItem(d){const rows=planRows();
+  const w=rows.find(r=>(d.m[rfiNorm(r.rfi)]||{}).status==='Waiting');if(w)return Object.assign({tag:'Waiting'},w);
+  const f=rows.find(r=>(d.m[rfiNorm(r.rfi)]||{}).status==='Failed');if(f)return Object.assign({tag:'Re-inspect'},f);
+  const p=rows.find(r=>!d.m[rfiNorm(r.rfi)]);return p?Object.assign({tag:'Next'},p):null}
+function axChart(d){
+  const ids=tableOrder();const mx=Math.max(1,...ids.map(id=>d.planBy[id]||0));const step=mx>12?Math.ceil(mx/6/2)*2:mx>6?2:1;const top=Math.ceil(mx/step)*step;const ticks=[];for(let v=top;v>=0;v-=step)ticks.push(v);
+  const bars=ids.map(id=>{const pl=d.planBy[id]||0,p=d.per[id].Passed,w=d.per[id].Waiting,f=d.per[id].Failed;const H=v=>(v/top*100).toFixed(1)+'%';
+    return `<div class="axb" data-form="${id}" data-doc="all"><div class="tip"><div><small>Passed</small><b>${p}</b></div><div><small>Waiting</small><b>${w}</b></div><div><small>Failed</small><b>${f}</b></div><div><small>Plan</small><b>${pl}</b></div></div>
+      <div class="trk" style="height:${H(pl)}"><i class="fl f" style="height:${pl?(f/pl*100):0}%"></i><i class="fl w" style="height:${pl?(w/pl*100):0}%"></i><i class="fl p" style="height:${pl?(p/pl*100):0}%"></i></div><span>${SHORTN[id]}</span></div>`}).join('');
+  return `<div class="axc axc-ch"><div class="axh"><h3>Inspection Overview</h3><span class="axsel">By System</span></div>
+   <div class="axch"><div class="axy">${ticks.map(t=>`<span>${t}</span>`).join('')}</div><div class="axbars">${bars}</div></div>
+   <div class="axlg"><span><i class="p"></i>Passed</span><span><i class="w"></i>Waiting</span><span><i class="f"></i>Failed</span><span><i class="t"></i>Planned</span></div></div>`}
+function axCal(d){
+  const now=new Date(),base=new Date(now.getFullYear(),now.getMonth(),now.getDate()+CALW*7);const dow=(base.getDay()+6)%7;const mon=new Date(base);mon.setDate(base.getDate()-dow);
+  const td=today(),days=[];for(let i=0;i<7;i++){const x=new Date(mon);x.setDate(mon.getDate()+i);days.push(x)}
+  const iso=x=>`${x.getFullYear()}-${pad(x.getMonth()+1)}-${pad(x.getDate())}`;
+  const has=new Set();Object.values(d.m).forEach(r=>{if(r.date)has.add(r.date);if(r.sent)has.add(r.sent)});
+  const mid=days[3];
+  return `<div class="axc axc-cal"><div class="axh"><h3>${MON[mid.getMonth()]} ${mid.getFullYear()}</h3><div class="axnav"><button data-calw="-1" aria-label="previous week">${AXI.chev(-1)}</button><button data-calw="1" aria-label="next week">${AXI.chev(1)}</button></div></div>
+   <div class="axwk">${days.map((x,i)=>{const s=iso(x);return `<button class="axd${s===td?' td':''}${s===CALSEL?' sel':''}" data-cald="${s}"><small>${DOW[i]}</small><b>${x.getDate()}</b>${has.has(s)?'<i></i>':''}</button>`}).join('')}</div></div>`}
+function axActivity(d){
+  let list=Object.entries(d.m).map(([k,r])=>{const it=planRows().find(x=>rfiNorm(x.rfi)===k)||{};return Object.assign({rfi:k,item:it.item||TT2[r.form]||'',fl:it.fl||''},r)});
+  if(CALSEL)list=list.filter(r=>r.date===CALSEL||r.sent===CALSEL);
+  list.sort((a,b)=>String(b.sent||b.date||'').localeCompare(String(a.sent||a.date||'')));list=list.slice(0,6);
+  const dt=v=>{if(!v)return '—';const x=new Date(v+'T00:00');return `${DOW[(x.getDay()+6)%7]}, ${x.getDate()} ${MON[x.getMonth()].slice(0,3)}`};
+  const ico={Passed:AXI.ok,Waiting:AXI.clock,Failed:AXI.warn};
+  return `<div class="axc axc-act"><div class="axh"><h3>${CALSEL?'Activity · '+dt(CALSEL):'Recent Activity'}</h3>${CALSEL?'<button class="axx" data-cald="">✕</button>':''}</div>
+   ${list.length?`<div class="axl">${list.map(r=>`<button class="axi" ${r.src==='file'?`data-att="${esc(r.rfi)}" data-item="${esc(r.item)}" data-fl="${esc(r.fl)}"`:`data-form="${r.form}" data-doc="all"`}><span class="ck ${r.status}">${ico[r.status]||''}</span><span class="when"><small>${dt(r.date)}</small><b>${esc(r.fl||'—')}</b></span><span class="what"><b>${esc(r.rfi)}</b><small>${esc(r.item)} · ${r.src==='file'?'File':'Form'}</small></span></button>`).join('')}</div>`:`<div class="axe">${CALSEL?'ไม่มีรายการในวันนี้':'ยังไม่มีผลการตรวจ — เริ่มจากเปิดฟอร์ม หรือแนบไฟล์ในตาราง ITP Status'}</div>`}</div>`}
+function axSource(d){const rec=Object.values(d.m),n=rec.length||0,ff=rec.filter(r=>r.src!=='file').length,fi=rec.filter(r=>r.src==='file').length;
+  const pc=v=>n?(v/n*100):0;const f2=v=>v.toFixed(2)+'%';
+  return `<div class="axc axc-src"><div class="axh"><h3>Result Source</h3><span class="axsel">${n} records</span></div>
+   <div class="axsr"><div><small>From ITP Form</small><b>${f2(pc(ff))}</b><div class="bar"><i style="width:${pc(ff)}%"></i></div><p><span class="up">${ff}</span> records filled in the form</p></div>
+   <div><small>From Attached File</small><b>${f2(pc(fi))}</b><div class="bar"><i style="width:${pc(fi)}%"></i></div><p><span class="up">${fi}</span> records with external files</p></div></div></div>`}
+function axKpi(ic,label,val,delta,cls,foot,f){return `<button class="axk" data-stf="${f}" data-go="stw"><div class="axkh"><span>${label}</span><i>${ic}</i></div><b>${val}</b><p><span class="dl ${cls}">${delta}</span> ${foot}</p></button>`}
 function homeHTML(){
-  const d=stData(),now=new Date(),h=now.getHours();
-  const hi=h<12?'Good Morning':h<17?'Good Afternoon':'Good Evening';
-  const dt=now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-  const who=(CFG.tester||'').trim();
-  const pc=v=>d.tot?Math.round(v/d.tot*100):0;
-  const up='<span class="bd up">↗ ';
-  return `<div class="db"><div class="db-sh">
-  <header class="db-nav"><div class="db-br"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20L12 5l7 15M8.5 14h7"/></svg></i><b>ITP<span class="hs"> · Sky Ground Residence 38</span></b></div>
-   <nav class="db-pills">${tableOrder().map(id=>`<button class="pl ${formStatus(id)}" data-form="${id}" data-doc="all"><span>${TT2[id]}</span><i class="sd" title="${formStatus(id)}"></i></button>`).join('')}</nav>
-   <div class="db-r"><button class="rb" data-go="stQ" aria-label="search">${IC.search}</button><button class="rb" data-act="settings" aria-label="settings">${IC.gear}</button></div></header>
-  <section class="db-hero"><img src="${HERO}" alt=""><div class="hv"><b>Sky Ground Residence 38</b><span>M&amp;E ITP · Coral Life Co., Ltd.</span></div></section>
-  <section class="db-top"><div class="db-gr"><h1>${hi}${who?' '+esc(who):''}</h1><p>Today is ${dt}</p><p class="pj">Sky Ground Residence 38 · M&amp;E ITP</p></div>
-   ${dbKpi(IC.gauge,'k1','Completion Rate',d.pct+'%','',`${up}${d.n.Passed}/${d.tot}</span>`,'Passed ÷ Total RFI','All')}
-   ${dbKpi(IC.ok,'k2','Passed',d.n.Passed,'',`${up}${pc(d.n.Passed)}%</span>`,'of '+d.tot+' RFIs','Passed')}
-   ${dbKpi(IC.clock,'k3','Waiting',d.n.Waiting,'',`<span class="bd wt">${pc(d.n.Waiting)}%</span>`,'รอผลการตรวจสอบ','Waiting')}
-   ${dbKpi(IC.warn,'k4','Failed',d.n.Failed,'',`<span class="bd dn">${pc(d.n.Failed)}%</span>`,'ไม่ผ่านการตรวจสอบ','Failed')}</section>
-  <section class="db-mid">${gaugeHTML(d)}</section>
-  ${statusHTML(d)}</div></div>`}
+  setTimeout(()=>extSync(),0);
+  const d=stData(),who=(CFG.tester||'').trim(),name=who||'Coral Life Team',ini=(name.split(/\s+/).map(x=>x[0]).join('').slice(0,2)||'CL').toUpperCase();
+  const pc=v=>d.tot?Math.round(v/d.tot*100):0,nx=nextItem(d);
+  const side=`<aside class="axs"><div class="axlogo"><i>${SV('<path d="M16 46L32 14l16 32M22 36h20" stroke-width="5"/>')}</i><b>ITP</b><small>SGR 38</small></div>
+   <label class="axq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="sbQ" type="text" placeholder="Search RFI…" autocomplete="off"><kbd>⌘K</kbd></label>
+   <div class="axm"><h6>Main Menu</h6><button class="on" data-go="axTop">${AXI.grid}Overview</button><button data-go="stw">${AXI.list}ITP Status</button><button data-act="itp7">${AXI.xls}ITP Excel</button>
+   <h6>Forms</h6>${tableOrder().map(id=>`<button data-form="${id}" data-doc="all">${AXI.doc}<span>${TT2[id].replace('<br>',' ')}</span>${d.per[id].Passed+d.per[id].Waiting+d.per[id].Failed?`<em>${d.per[id].Passed}/${d.planBy[id]||0}</em>`:''}</button>`).join('')}
+   <h6>Settings</h6><button data-act="settings">${IC.gear}Settings</button>${hasBackend()?`<button data-act="extsync">${AXI.sync}Sync Results</button>`:''}</div>
+   ${nx?`<div class="axev"><h6>${nx.tag==='Next'?'Next Inspection':nx.tag==='Waiting'?'Waiting Result':'Re-Inspection'}</h6><b>${esc(nx.rfi)}</b><p>${esc(nx.item)}</p><div class="tg"><span>${esc(nx.fl)}</span><span>${esc(SHORTN[nx.form]||'Attach file')}</span></div><button class="go" ${nx.form?`data-form="${nx.form}" data-doc="all"`:`data-att="${esc(nx.rfi)}" data-item="${esc(nx.item)}" data-fl="${esc(nx.fl)}"`} aria-label="open">${AXI.arrow}</button></div>`:''}</aside>`;
+  const main=`<main class="axmn" id="axTop"><header class="axtop"><div><h1>Welcome back, ${esc(who?who.split(/\s+/)[0]:'Team')}!</h1><p>Track ITP inspection progress for Sky Ground Residence 38 — M&amp;E System.</p></div>
+    <div class="axtr"><button class="axr" data-act="itp7" title="ITP Excel">${AXI.xls}</button><button class="axr" data-act="settings" title="Settings">${IC.gear}</button></div></header>
+   <section class="axks">${axKpi(AXI.users,'Total RFI',d.tot,d.pct+'%','up','completed','All')}${axKpi(AXI.ok,'Passed',d.n.Passed,'+'+pc(d.n.Passed)+'%','up','of all RFIs','Passed')}${axKpi(AXI.clock,'Waiting',d.n.Waiting,pc(d.n.Waiting)+'%','wt','awaiting result','Waiting')}${axKpi(AXI.warn,'Failed',d.n.Failed,pc(d.n.Failed)+'%','dn','need re-inspection','Failed')}</section>
+   <section class="axg">${axChart(d)}<div class="axcol">${axCal(d)}${axActivity(d)}</div>${axSource(d)}</section>
+   ${statusHTML(d)}</main>`;
+  return `<div class="ax">${side}${main}</div>`}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-calw],[data-cald],[data-act="extsync"]');if(!t||VIEW!=='home')return;
+  if(t.dataset.calw){CALW+=+t.dataset.calw;keepScroll(render);return}
+  if(t.dataset.cald!=null){CALSEL=CALSEL===t.dataset.cald?'':t.dataset.cald;keepScroll(render);return}
+  if(t.dataset.act==='extsync'){busy('กำลังซิงก์…');EXT_SYNCED=false;extSync(true).finally(()=>{busy(false);toast('ซิงก์ผลล่าสุดแล้ว')})}});
+document.addEventListener('input',e=>{if(e.target.id==='sbQ'){const q=document.getElementById('stQ');if(q){q.value=e.target.value;q.dispatchEvent(new Event('input',{bubbles:true}))}}});
+document.addEventListener('keydown',e=>{if(e.target.id==='sbQ'&&e.key==='Enter'){const w=document.getElementById('stw');if(w)w.scrollIntoView({behavior:'smooth'})}if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'&&VIEW==='home'){const q=document.getElementById('sbQ');if(q){e.preventDefault();q.focus()}}});
+
 function openDocs(id){const f=FORMS[id];$('#docBox').innerHTML=`<div class="mh"><b>${f.name}</b><button class="btn sm" data-act="close">ปิด</button></div><div class="hint" style="margin:-4px 0 10px">${f.th}</div><div class="mlist"><div class="sub" style="border:0"><button class="si all" data-form="${id}" data-doc="all"><span class="sd"></span><span class="st"><b>เปิดทั้งชุด</b><em>กรอกทุกเอกสารในหน้าเดียว</em></span><span class="ar">›</span></button>${f.sheets.map((sh,i)=>`<button class="si" data-form="${id}" data-doc="${sh.id}"><span class="sd">${i+1}</span><span class="st"><b>${sh.name}</b><em>${sh.doc}</em></span><span class="ar">›</span></button>`).join('')}</div></div>`;$('#mDocs').classList.add('on')}
 const SHORT={IRP:'Power Wire IR Test',IRC:'Control Wire IR Test',DR:'Drain Pipe Test',PT:'Refrigerant Pressure Test',DUI:'Ducting & Insulation',TR:'AC Mini Split Test'};
 let VIEW='home';
@@ -1533,7 +1743,98 @@ function markSent(){
   recordStatus();
   const m=stLoad();if(m[s.rfi]){m[s.rfi].sent=today();LS.set(ST_KEY,JSON.stringify(m))}
 }
+/* =================== EXTERNAL RESULTS (attach file → counts in progress) =================== */
+const EXT_KEY='itp_ext';
+let EXT=(()=>{try{return JSON.parse(LS.get(EXT_KEY)||'{}')||{}}catch(e){return {}}})();
+let EXT_SYNCED=false,EXT_SYNCING=false;
+const extStore=()=>{if(!LS.set(EXT_KEY,JSON.stringify(EXT)))throw new Error('พื้นที่เก็บข้อมูลในเครื่องเต็ม — ลดขนาด/จำนวนไฟล์ หรือเชื่อม Apps Script')};
+function gasCall(fn,arg){
+  if(IN_GAS)return new Promise((res,rej)=>google.script.run.withSuccessHandler(res).withFailureHandler(e=>rej(e instanceof Error?e:new Error(String(e))))[fn](arg||{}));
+  return fetch(CFG.gasUrl,{method:'POST',body:JSON.stringify(Object.assign({action:fn,key:CFG.key||''},arg||{}))}).then(r=>r.json()).then(r=>{if(r&&r.ok===false)throw new Error(r.error||'error');return r})}
+async function extSync(force){
+  if(!hasBackend()||EXT_SYNCING||(EXT_SYNCED&&!force))return;
+  EXT_SYNCING=true;
+  try{const r=await gasCall('getExternal',{});if(r&&r.records){EXT=r.records;try{extStore()}catch(e){}EXT_SYNCED=true;if(VIEW==='home')keepScroll(render)}}
+  catch(e){console.warn('sync external',e)}finally{EXT_SYNCING=false}}
+const fmtSize=b=>b>1048576?(b/1048576).toFixed(1)+' MB':Math.max(1,Math.round(b/1024))+' KB';
+const fileIco=t=>/pdf/.test(t||'')?'📄':/image/.test(t||'')?'🖼️':/sheet|excel/.test(t||'')?'📊':/word/.test(t||'')?'📝':'📎';
+function dataUrlToBlob(u){const [h,b]=u.split(',');const m=/:(.*?);/.exec(h);const s=atob(b),a=new Uint8Array(s.length);for(let i=0;i<s.length;i++)a[i]=s.charCodeAt(i);return new Blob([a],{type:m?m[1]:'application/octet-stream'})}
+const readDataUrl=f=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result));r.onerror=rej;r.readAsDataURL(f)});
+let EX=null; // modal state
+function extModal(){let m=document.getElementById('mExt');if(m)return m;
+  m=document.createElement('div');m.className='modal';m.id='mExt';m.innerHTML='<div class="mbox ex-box" id="exBox"></div>';document.body.appendChild(m);
+  m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('on')});return m}
+function openExt(rfi,item,fl){
+  rfi=rfiNorm(rfi);const r=EXT[rfi]||{};
+  EX={rfi,item:item||r.item||'',fl:fl||r.floor||'',status:r.status||'',date:r.date||'',sent:r.sent||'',note:r.note||'',files:(r.files||[]).slice(),add:[],remove:[],exists:!!EXT[rfi]};
+  extModal().classList.add('on');drawExt()}
+function drawExt(){const e=EX,seg=k=>`<label class="chip ${k==='Passed'?'P':k==='Failed'?'F':'NA'}"><input type="radio" name="exSt" value="${k}" ${e.status===k?'checked':''}>${k}</label>`;
+  const formMade=(allFormStatus()[e.rfi]);
+  const fl=[...e.files.map((f,i)=>({f,i,old:1})),...e.add.map((f,i)=>({f,i,old:0}))];
+  $('#exBox').innerHTML=`<div class="mh"><b>แนบผลการตรวจจากภายนอก</b><button class="btn sm" data-exx>ปิด</button></div>
+  <div class="ex-rf"><b>${esc(e.rfi)}</b><span>${esc(e.item)}${e.fl?' · '+esc(e.fl):''}</span></div>
+  ${formMade?`<div class="msg inf" style="margin-top:0">รายการนี้มีข้อมูลจากฟอร์มแล้ว (${esc(formMade.status)}) — หน้าหลักจะแสดงผลจากฟอร์มเป็นหลัก</div>`:''}
+  <div class="fld" style="margin-top:12px"><label>ผลการตรวจ</label><div class="chips rs ex-rs">${seg('Passed')}${seg('Waiting')}${seg('Failed')}</div></div>
+  <div class="grid" style="margin-top:12px"><div class="fld"><label>วันที่ตรวจ / ทดสอบ</label><input type="date" id="exDate" value="${esc(e.date)}"></div><div class="fld"><label>วันที่ส่งรายงาน</label><input type="date" id="exSent" value="${esc(e.sent)}"></div></div>
+  <div class="fld" style="margin-top:12px"><label>ไฟล์แนบ (PDF / รูป / Excel / Word)</label>
+   <div class="ex-files">${fl.length?fl.map(x=>`<div class="ex-f${x.old&&e.remove.includes(x.f.id)?' rm':''}"><span class="i">${fileIco(x.f.type)}</span><button class="nm" data-exo="${x.old?'o':'a'}${x.i}">${esc(x.f.name)}</button><small>${x.f.size?fmtSize(x.f.size):''}${x.old?'':' · ใหม่'}</small><button class="x" data-exd="${x.old?'o':'a'}${x.i}" title="เอาออก">✕</button></div>`).join(''):'<div class="hint" style="margin:2px 0">ยังไม่มีไฟล์แนบ</div>'}</div>
+   <label class="drop" style="margin-top:8px;padding:12px"><input type="file" id="exIn" multiple accept=".pdf,image/*,.xlsx,.xls,.doc,.docx">📎 เพิ่มไฟล์</label></div>
+  <div class="fld" style="margin-top:12px"><label>หมายเหตุ</label><textarea id="exNote" placeholder="เช่น ตรวจโดยที่ปรึกษา / เลขเอกสารอ้างอิง">${esc(e.note)}</textarea></div>
+  <div class="hint">${hasBackend()?'ไฟล์จะถูกเก็บใน Google Drive (โฟลเดอร์ ITP Test Reports › Attachments) และทุกคนในทีมเห็นสถานะเดียวกัน':'ยังไม่เชื่อม Apps Script — ไฟล์และสถานะจะเก็บในเครื่องนี้เท่านั้น'}</div>
+  <div id="exMsg"></div>
+  <div class="ex-btns">${e.exists?'<button class="btn del" data-exdel>ลบรายการ</button>':'<span></span>'}<button class="btn" data-exx>ยกเลิก</button><button class="btn grn" data-exsave>บันทึก</button></div>`}
+function exPull(){const e=EX;const c=document.querySelector('input[name="exSt"]:checked');e.status=c?c.value:'';e.date=$('#exDate').value;e.sent=$('#exSent').value;e.note=$('#exNote').value}
+async function exAddFiles(files){exPull();busy('กำลังเตรียมไฟล์…');
+  try{for(const f of files){let data,type=f.type||'application/octet-stream',name=f.name,size=f.size;
+      if(/^image\//.test(type)&&!/svg|gif/.test(type)){data=await compress(f,2000,.8);type='image/jpeg';name=name.replace(/\.(heic|heif|png|webp|jpe?g)$/i,'')+'.jpg';size=Math.round((data.length-data.indexOf(',')-1)*.75)}
+      else data=await readDataUrl(f);
+      EX.add.push({name,type,size,data})}}
+  catch(err){toast('อ่านไฟล์ไม่ได้: '+err.message)}finally{busy(false)}drawExt()}
+function exMsg(cls,t){$('#exMsg').innerHTML=`<div class="msg ${cls}">${t}</div>`}
+async function exSave(){exPull();const e=EX;
+  if(!e.status)return exMsg('err','เลือกผลการตรวจก่อน (Passed / Waiting / Failed)');
+  const keep=e.files.filter(f=>!e.remove.includes(f.id));
+  if(!keep.length&&!e.add.length)return exMsg('err','แนบไฟล์อย่างน้อย 1 ไฟล์ เพื่อใช้นับความคืบหน้า');
+  const meta={rfi:e.rfi,item:e.item,floor:e.fl,form:formOfRfi(e.rfi),status:e.status,date:e.date,sent:e.sent,note:e.note,by:CFG.tester||''};
+  busy('กำลังบันทึก…');
+  try{
+    if(hasBackend()){
+      const r=await gasCall('saveExternal',Object.assign({},meta,{remove:e.remove,files:e.add.map(f=>({name:f.name,type:f.type,size:f.size,data:f.data.split(',')[1]}))}));
+      if(!r||!r.records)throw new Error('ไม่ได้รับผลตอบกลับจากเซิร์ฟเวอร์');EXT=r.records;try{extStore()}catch(x){}
+    }else{
+      const files=keep.map(f=>{if(f.id&&!f.data&&!f.url)return null;return f}).filter(Boolean).concat(e.add.map(f=>Object.assign({id:'L'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)},f)));
+      const prev=EXT[e.rfi];EXT[e.rfi]=Object.assign({},meta,{files,at:new Date().toISOString()});
+      try{extStore()}catch(x){if(prev)EXT[e.rfi]=prev;else delete EXT[e.rfi];throw x}
+    }
+    busy(false);$('#mExt').classList.remove('on');toast('บันทึกผล '+e.rfi+' แล้ว');keepScroll(render);
+  }catch(err){busy(false);exMsg('err','บันทึกไม่สำเร็จ: '+esc(err.message))}}
+let exDelArm=0;
+async function exDelete(b){if(Date.now()-exDelArm>3000){exDelArm=Date.now();b.textContent='แตะอีกครั้งเพื่อยืนยัน';return}
+  busy('กำลังลบ…');
+  try{if(hasBackend()){const r=await gasCall('deleteExternal',{rfi:EX.rfi});EXT=r.records||{};}else delete EXT[EX.rfi];try{extStore()}catch(x){}
+    busy(false);$('#mExt').classList.remove('on');toast('ลบรายการแล้ว');keepScroll(render)}
+  catch(err){busy(false);exMsg('err','ลบไม่สำเร็จ: '+esc(err.message))}}
+function exOpen(key){const old=key[0]==='o',i=+key.slice(1),f=old?EX.files[i]:EX.add[i];if(!f)return;
+  if(f.url){const a=document.createElement('a');a.href=f.url;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();return}
+  if(f.data)downloadBlob({blob:dataUrlToBlob(f.data),name:f.name})}
+document.addEventListener('click',ev=>{const t=ev.target.closest('[data-att],[data-exx],[data-exsave],[data-exdel],[data-exd],[data-exo]');if(!t)return;
+  if(t.dataset.att!=null){ev.stopPropagation();openExt(t.dataset.att,t.dataset.item,t.dataset.fl);return}
+  if('exx' in t.dataset){$('#mExt').classList.remove('on');return}
+  if('exsave' in t.dataset){exSave();return}
+  if('exdel' in t.dataset){exDelete(t);return}
+  if(t.dataset.exd){exPull();const k=t.dataset.exd,i=+k.slice(1);if(k[0]==='a')EX.add.splice(i,1);else{const id=EX.files[i].id;EX.remove.includes(id)?EX.remove.splice(EX.remove.indexOf(id),1):EX.remove.push(id)}drawExt();return}
+  if(t.dataset.exo){exOpen(t.dataset.exo);return}
+},true);
+document.addEventListener('change',ev=>{if(ev.target.id==='exIn'){const fs=[...ev.target.files];ev.target.value='';if(fs.length)exAddFiles(fs)}});
+
+function allFormStatus(){const m=stLoad();Object.keys(m).forEach(k=>{m[k].src='form'});
+  Object.keys(FORMS).forEach(id=>{let d=null;try{d=JSON.parse(LS.get('itp_draft_'+id)||'null')}catch(e){}const s=stateSummary(d);if(!s)return;const o=m[s.rfi]||{};m[s.rfi]={form:s.form,date:s.date,status:s.status,sent:o.sent||'',src:'form'}});return m}
 function allStatus(){
+  const m=allFormStatus();
+  Object.entries(EXT||{}).forEach(([k,r])=>{if(!r||!r.status||!(r.files||[]).length)return;const f=(r.files||[]).length;if(m[k]){m[k].files=f;return}m[k]={form:r.form||formOfRfi(k),date:r.date||'',status:r.status,sent:r.sent||'',src:'file',files:f}});
+  return m;
+}
+function allStatus_old(){
   const m=stLoad();
   Object.keys(FORMS).forEach(id=>{
     let d=null;try{d=JSON.parse(LS.get('itp_draft_'+id)||'null')}catch(e){}
