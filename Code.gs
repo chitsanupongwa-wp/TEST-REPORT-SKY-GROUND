@@ -42,6 +42,8 @@ function submitReport(p) {
   try { file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW); } catch (e) {}
   const url = file.getUrl();
   const res = { ok: true, url: url, email: false, line: false };
+  try { res.folderUrl = getFolder_().getUrl(); } catch (e) {}
+  res.appUrl = appUrl_();
   let xlsxBlob = null;
   if (p.xlsx) {
     xlsxBlob = Utilities.newBlob(Utilities.base64Decode(p.xlsx), 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', p.xlsxName || 'ITP_Report.xlsx');
@@ -49,7 +51,7 @@ function submitReport(p) {
     try { xf.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW); } catch (e) {}
     res.xlsxUrl = xf.getUrl();
   }
-  const links = '\n\nPDF: ' + url + (res.xlsxUrl ? '\nExcel: ' + res.xlsxUrl : '');
+  const L = buildLinks_(res);   // set after all URLs are known
 
   if (p.sendEmail) {
     const to = String(p.to || PROPS.getProperty('DEFAULT_TO') || '').trim();
@@ -61,7 +63,10 @@ function submitReport(p) {
         const big = size > 20 * 1024 * 1024;
         const opt = { cc: p.cc || '', name: 'ITP Test Form' };
         if (!big) opt.attachments = atts;
-        MailApp.sendEmail(to, p.subject || 'ITP Test Report', (p.summary || '') + links + (big ? '\n(ไฟล์ใหญ่เกิน แนบเป็นลิงก์แทน)' : ''), opt);
+        const note = big ? '\n(ไฟล์ใหญ่เกิน แนบเป็นลิงก์แทน)' : '';
+        opt.htmlBody = '<div style="font-family:Arial,Tahoma,sans-serif;font-size:14px;line-height:1.6">' +
+          escHtml_(p.summary || '').replace(/\n/g, '<br>') + '<br><br>' + L.html + escHtml_(note).replace(/\n/g, '<br>') + '</div>';
+        MailApp.sendEmail(to, p.subject || 'ITP Test Report', (p.summary || '') + '\n\n' + L.text + note, opt);
         res.email = true;
       } catch (e) { res.emailError = String(e.message || e); }
     }
@@ -71,11 +76,33 @@ function submitReport(p) {
     const token = PROPS.getProperty('LINE_TOKEN'), lineTo = PROPS.getProperty('LINE_TO');
     if (!token || !lineTo) res.lineError = 'ยังไม่ได้ตั้งค่า LINE_TOKEN / LINE_TO';
     else {
-      try { pushLine_(token, lineTo, (p.summary || '') + '\n\n📄 PDF: ' + url + (res.xlsxUrl ? '\n📊 Excel: ' + res.xlsxUrl : '')); res.line = true; }
+      try { pushLine_(token, lineTo, (p.summary || '') + '\n\n' + L.text); res.line = true; }
       catch (e) { res.lineError = String(e.message || e); }
     }
   }
   return res;
+}
+
+/** Web app URL (/exec) – the same link that is used for the form and the LINE webhook */
+function appUrl_() {
+  try { return ScriptApp.getService().getUrl() || ''; } catch (e) { return ''; }
+}
+
+/** One shared set of links used by the web page, e-mail and LINE */
+function buildLinks_(res) {
+  const items = [];
+  if (res.url) items.push({ icon: '📄', label: 'PDF', url: res.url });
+  if (res.xlsxUrl) items.push({ icon: '📊', label: 'Excel', url: res.xlsxUrl });
+  if (res.folderUrl) items.push({ icon: '📁', label: 'โฟลเดอร์รายงานทั้งหมด', url: res.folderUrl });
+  if (res.appUrl) items.push({ icon: '📝', label: 'เปิดฟอร์ม ITP Test Form', url: res.appUrl });
+  return {
+    text: items.map(function (i) { return i.icon + ' ' + i.label + ': ' + i.url; }).join('\n'),
+    html: items.map(function (i) { return i.icon + ' <a href="' + i.url + '">' + i.label + '</a>'; }).join('<br>')
+  };
+}
+
+function escHtml_(t) {
+  return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 function pushLine_(token, to, text) {

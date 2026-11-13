@@ -596,34 +596,102 @@ input[type=text]:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(18,
 @media(min-width:900px){.hm-wide .gc .gn{width:54px;height:54px;min-width:54px!important;font-size:28px!important}.gc::after{width:42px;height:42px;font-size:20px}}
 @media(max-width:639px){.gc::after{display:none!important}.hm-wide .gc{padding:10px 12px!important;gap:10px}.hm-wide .gc .gn{width:38px!important;height:38px!important;min-width:38px!important;font-size:19px!important}.hm-wide .gc b{font-size:20px!important;line-height:1.05;min-width:0}}
 
-/* ---- ITP Status panel on home (was tile 7) ---- */
-.stw{margin-top:16px;background:#fff;border-radius:24px;padding:18px 16px 12px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 16px rgba(0,0,0,.05)}
-.sth{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:14px}
-.sth .gbar{width:46px;height:5px;margin-bottom:8px}
-.sth h2{margin:0;font-size:22px;font-weight:700;color:#1d2430}
-.stb{font:inherit;font-size:14px;font-weight:600;color:#fff;background:#12874f;border:0;border-radius:999px;padding:9px 16px;cursor:pointer;box-shadow:0 4px 12px rgba(18,135,79,.28)}
-.stb:active{transform:translateY(1px)}
-.sts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-@media(min-width:720px){.sts{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.stc{border-radius:18px;padding:12px 16px;background:#f5f6f5;display:flex;flex-direction:column;gap:2px}
-.stc span{font-size:13px;color:#6b7684;font-weight:500}.stc b{font-size:30px;line-height:1.1;font-weight:700;color:#1d2430}
-.stc.p b{color:#12874f}.stc.f b{color:#d93025}.stc.w b{color:#b06f00}
-.stl{margin-top:8px}
-.str{display:grid;grid-template-columns:36px 1fr auto;grid-template-areas:"n x p" "n d1 d2";gap:2px 12px;align-items:center;padding:12px 0;border-top:1px solid #eef0ee}
-.str:first-child{border-top:0}
-.stn{grid-area:n;width:36px;height:36px;border-radius:50%;background:#12874f;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
-.stx{grid-area:x;min-width:0;display:flex;flex-direction:column}.stx b{font-size:14px;letter-spacing:-.2px;font-weight:600;word-break:break-all;line-height:1.25}.stx small{font-size:13px;color:#6b7684}
-.std{font-size:13.5px;color:#1d2430}.std small{color:#8a94a3;margin-right:5px}
-.str .d1{grid-area:d1}.str .d2{grid-area:d2;text-align:right}
-.stp{grid-area:p;font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 12px;justify-self:end}
-.stp.Passed{background:#e3f4ea;color:#12874f}.stp.Failed{background:#fce8e6;color:#d93025}.stp.Waiting{background:#fff4e0;color:#b06f00}
-.ste{padding:22px 4px;text-align:center;color:#8a94a3;font-size:14px}
-@media(min-width:720px){
- .str{grid-template-columns:44px minmax(0,1.6fr) 1fr 1fr auto;grid-template-areas:"n x d1 d2 p";gap:12px 18px;padding:14px 0}
- .stn{width:44px;height:44px}.stx b{font-size:17px}.std{font-size:15px}.std small{display:block;margin:0}.str .d2{text-align:left}
- .stw{padding:24px 28px 14px}.sth h2{font-size:28px}
-}
-</style>
+/* ================= DASHBOARD HOME (web style) ================= */
+body.onhome{background:#e6ebf0!important}
+.db{max-width:1280px;margin:0 auto;padding:14px 12px 40px}
+.db-sh{background:#f1f5f9;border-radius:28px;padding:16px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+@media(min-width:900px){.db{padding:28px 24px 50px}.db-sh{padding:24px;border-radius:34px}}
+.db,.db *{font-family:'Sarabun',sans-serif}
+.db{--t:#16b5a0;--td:#0e9f8e;--tl:#d4f5ef;--tx:#1b2430;--mu:#6b7684}
+.db-nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.db-br{display:flex;align-items:center;gap:10px}.db-br i{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#23c9b3,#0e9f8e);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(14,159,142,.35)}.db-br i svg{width:22px;height:22px}
+.db-br b{font-size:21px;font-weight:700;color:var(--tx)}
+.db-pills{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;order:3;width:100%;padding:4px 2px 6px}
+.db-pills::-webkit-scrollbar{display:none}
+.db-pills button{flex:0 0 auto;display:flex;align-items:center;gap:8px;font:inherit;font-size:14px;color:#333;background:#fff;border:0;border-radius:999px;padding:10px 18px;cursor:pointer;box-shadow:0 1px 3px rgba(16,24,40,.06)}
+.db-pills button svg{width:18px;height:18px}
+.db-pills button.pl{flex:1 0 auto;justify-content:flex-start;position:relative;padding:9px 16px 9px 10px;white-space:nowrap}
+.db-pills button.pl u{text-decoration:none;width:26px;height:26px;border-radius:50%;background:var(--t);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.db-pills button.pl:hover{background:#e4f7f3}
+.db-pills .sd{width:9px;height:9px;border-radius:50%;background:#c9d0d6;margin-left:auto;flex:none}.pl.done .sd{background:#16b5a0;box-shadow:0 0 0 3px #d4f5ef}.pl.prog .sd{background:#f0a020;box-shadow:0 0 0 3px #fff1d6}
+.db-pills button.on{background:linear-gradient(135deg,#27cdb7,#0e9f8e);color:#fff;font-weight:600;box-shadow:0 4px 12px rgba(14,159,142,.35)}
+.db-r{display:flex;align-items:center;gap:10px;margin-left:auto}
+.db-br b{font-size:19px}
+@media(max-width:599px){.db-br .hs{display:none}}
+.rb{width:42px;height:42px;border-radius:50%;border:0;background:#fff;color:#333;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 1px 3px rgba(16,24,40,.08)}.rb svg{width:20px;height:20px}
+.av{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 1px 4px rgba(16,24,40,.15)}
+.db-hero{position:relative;height:150px;margin-top:16px;border-radius:20px;overflow:hidden;box-shadow:0 1px 4px rgba(16,24,40,.08)}
+.db-hero img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
+.db-hero .hv{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 12px;color:#fff;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);display:flex;flex-direction:column;gap:2px}
+.db-hero .hv b{font-size:18px;font-weight:600}.db-hero .hv span{font-size:13px;opacity:.9}
+@media(min-width:900px){.db-hero{height:200px}}
+.db-top{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.db-gr{grid-column:1/-1;align-self:center;padding:4px 4px 2px}.db-gr h1{margin:0;font-size:24px;font-weight:600;color:var(--tx)}.db-gr p{margin:4px 0 0;font-size:14px;color:#444}.db-gr .pj{color:var(--td);font-weight:600}
+@media(min-width:1000px){.db-top{grid-template-columns:1.05fr repeat(4,minmax(0,1fr));gap:14px}.db-gr{grid-column:auto}.db-gr h1{font-size:26px}}
+.dk{background:#fff;border-radius:20px;padding:14px 16px 0;box-shadow:0 1px 2px rgba(16,24,40,.04),0 4px 14px rgba(16,24,40,.04)}
+.dk-h{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:#333}
+.dk-i{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}.dk-i svg{width:17px;height:17px}
+.k1 .dk-i{background:#d9f4ee;color:#0e9f8e}.k2 .dk-i{background:#dcf6e6;color:#1e9e4f}.k3 .dk-i{background:#fff1d6;color:#c98512}.k4 .dk-i{background:#fde4e2;color:#d93a32}
+.dk-v{display:flex;align-items:baseline;gap:8px;margin:10px 0 12px;flex-wrap:wrap}.dk-v b{font-size:34px;font-weight:600;line-height:1;color:var(--tx)}.dk-v em{font-style:normal;color:var(--mu);font-size:16px}
+.bd{font-size:12px;border-radius:8px;padding:2px 8px;font-weight:500}.bd.up{background:#e0f7ee;color:#1e9e4f}.bd.wt{background:#fff1d6;color:#c98512}.bd.dn{background:#fde4e2;color:#d93a32}
+.dk-f{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #eef1f4;padding:9px 0 10px;font-size:12px;color:var(--mu)}
+.dk-f button{font:inherit;font-size:12px;font-weight:600;color:#222;background:none;border:0;cursor:pointer;padding:0}
+.db-mid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+@media(min-width:1000px){.db-mid{grid-template-columns:1fr}}
+.dc{background:#fff;border-radius:24px;padding:18px 18px 16px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 4px 14px rgba(16,24,40,.04)}
+.dc-h{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.dc-h h3{margin:0;font-size:20px;font-weight:600;color:var(--tx);text-transform:none;letter-spacing:0}
+.lg2,.gl{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:#333}.lg2 span,.gl span{display:flex;align-items:center;gap:7px}
+.lg2 i,.gl i,.tip i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.dpa{background:#16b5a0}.dwa{background:#7fdcce}.dfa{background:#ef6a62}.dpe{background:#d9f4ef}.dgr{background:#d6dbe0}
+.ch2{position:relative;display:flex;gap:10px;margin-top:16px;height:270px;padding-bottom:50px}
+.yl{position:relative;width:26px;flex:0 0 26px;font-size:12px;color:#444}.yl span{position:absolute;right:0;transform:translateY(50%)}
+.bars{flex:1;display:flex;gap:8px;align-items:stretch;border-bottom:1px solid #eef1f4;background:repeating-linear-gradient(#0000 0 calc(100%/3 - 1px),#f1f4f6 calc(100%/3 - 1px) calc(100%/3))}
+.bc{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;min-width:0}
+.bt{position:relative;width:min(56px,72%);flex:1;display:flex;flex-direction:column-reverse;border-radius:12px 12px 0 0;margin-top:0}
+.bt{justify-content:flex-start}
+.bs{width:100%}.bs.pa{background:linear-gradient(#1bc0aa,#12a894)}.bs.wa{background:#7fdcce}.bs.fa{background:#ef6a62}.bs.pe{background:#d9f4ef;flex:none}
+.bs.pa,.bs.wa,.bs.fa{flex:none}
+.bt{overflow:hidden}
+.tip{display:none;position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);background:#fff;border-radius:10px;padding:8px 12px;box-shadow:0 6px 20px rgba(16,24,40,.18);font-size:12px;white-space:nowrap;z-index:5;flex-direction:column;gap:3px}
+.tip b{font-size:12.5px;margin-bottom:2px}.tip span{display:flex;align-items:center;gap:7px;color:#333}.tip em{font-style:normal;margin-left:auto;padding-left:14px;font-weight:600}
+.bc:hover .tip{display:flex}.bc:hover .bt{filter:brightness(.97)}
+.bl{position:absolute;top:calc(100% + 8px);left:-6px;right:-6px;text-align:center;font-size:11.5px;color:#444;line-height:1.2}.bl u{text-decoration:none;display:flex;width:20px;height:20px;border-radius:50%;background:var(--t);color:#fff;font-size:11px;font-weight:700;align-items:center;justify-content:center;margin:0 auto 3px}
+.bl span{display:block;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.bt{height:100%}.bc{height:100%}
+.bc .bt{flex:1}
+.dc-g{position:relative}
+.gl{flex-direction:column;gap:8px;margin-top:14px}
+.gd-lab{position:absolute;right:22px;top:76px;font-size:20px;font-weight:600;color:var(--t)}
+.gsv{display:block;width:100%;max-width:340px;margin:0 auto}
+.gsv line.tf{stroke:#16b5a0;stroke-width:2.2;stroke-linecap:round}.gsv line.te{stroke:#d6dbe0;stroke-width:2.2;stroke-linecap:round}
+.gsv .nd{stroke:#16b5a0;stroke-width:7;stroke-linecap:round}.gsv .hb{fill:#16b5a0}
+.gv{text-align:center;margin-top:6px;font-size:17px;color:var(--tx)}.gv b{font-size:24px;font-weight:700}.gv small{display:block;color:var(--mu);font-size:13px;margin-top:2px}
+.dc-t{margin-top:14px;padding:18px 0 8px}.dc-t .dc-h,.dc-t .chips2{padding:0 18px}
+.tb{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.sq{display:flex;align-items:center;gap:8px;height:42px;padding:0 14px;border-radius:999px;background:#f4f6f8;color:#6b7684}.sq svg{width:18px;height:18px;flex:none}
+.sq input{border:0!important;background:none!important;outline:none!important;box-shadow:none!important;height:auto!important;padding:0!important;font:inherit;font-size:14px!important;width:150px;color:var(--tx)}
+.xb{display:flex;align-items:center;gap:8px;height:42px;padding:0 20px;border:0;border-radius:999px;font:inherit;font-size:14px;font-weight:600;color:#fff;background:linear-gradient(135deg,#27cdb7,#0e9f8e);cursor:pointer;box-shadow:0 4px 12px rgba(14,159,142,.35)}.xb svg{width:17px;height:17px}
+.chips2{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 12px}
+.chipf{font:inherit;font-size:13.5px;padding:7px 16px;border-radius:999px;border:1px solid #dfe5ea;background:#fff;color:#444;cursor:pointer}.chipf.on{background:var(--tl);border-color:#9ee3d7;color:#0b7f71;font-weight:600}
+.stsc{overflow:auto;max-height:76vh;-webkit-overflow-scrolling:touch;position:relative}
+.stt{border-collapse:separate;border-spacing:0;min-width:1180px;width:100%;font-size:13px;color:var(--tx)}
+.stt th,.stt td{padding:9px 10px;vertical-align:middle;background:#fff;border-bottom:1px solid #eef1f4}
+.stt thead th{position:sticky;background:#f3f8fb;color:#27323f;font-weight:600;text-align:center;font-size:12.5px;z-index:2;border-bottom:1px solid #e3eaf0}
+.stt thead tr:first-child th{top:0}.stt thead tr:nth-child(2) th{top:37px;font-size:10.5px;font-weight:500;color:var(--mu);padding:5px}
+.stt thead th[colspan]{border-left:1px solid #e3eaf0}
+.stt td.c{text-align:center}.stt .rf{white-space:nowrap;font-weight:500}.stt .itm{min-width:210px;color:#333}.stt .fl{color:#0e9f8e;font-weight:600}.stt .dt{text-align:center;white-space:nowrap;min-width:58px}
+.stt tr.sc td{background:#e6f6f3;color:#0b7f71;font-weight:700;font-size:13.5px;padding:10px 18px;letter-spacing:.2px}
+.stt tr.gc2 td{background:#f8fafb;padding:8px 14px}
+.gx2{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.gx2 b{font-weight:600;font-size:13.5px}.gx2 small{color:var(--mu);font-size:12px}
+.gn2{width:26px;height:26px;border-radius:50%;background:var(--t);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
+.open{margin-left:6px;font:inherit;font-size:12.5px;font-weight:600;color:#0b7f71;background:var(--tl);border:0;border-radius:999px;padding:5px 14px;cursor:pointer}.open:hover{background:#c3efe7}
+.act{width:32px;height:32px;border-radius:10px;border:1px solid #e3e8ed;background:#fff;color:#333;font-size:15px;cursor:pointer}.act:hover{background:var(--tl);border-color:#9ee3d7}
+.stp{display:inline-block;font-style:normal;font-size:12px;font-weight:600;border-radius:8px;padding:3px 12px;white-space:nowrap}
+.stp.Passed{background:#dff6ef;color:#0e9f8e}.stp.Failed{background:#fde4e2;color:#d93a32}.stp.Waiting{background:#fff1d6;color:#b87608}.stp.Pending{background:#eef1f4;color:#6b7684}
+.stt tr.it:hover td{background:#fafdfc}
+.ste{padding:26px;text-align:center;color:var(--mu);font-size:14px}
+.stt tr[hidden]{display:none}
+</style></style>
 </head>
 <body>
 <main id="app"></main>
@@ -955,22 +1023,90 @@ function docStatus(id,sid){if(LS.get('itp_done_'+id))return 'done';const st=save
 const GWAVE='<svg class="gw" viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M0 60 C70 58 120 40 200 10 V60Z" fill="rgba(120,220,110,.55)"/><path d="M30 60 C100 56 150 40 200 26 V60Z" fill="rgba(160,240,140,.35)"/></svg>';
 function gcard(attrs,num,title,stt,sub){return `<button class="gc ${stt}" ${attrs}><span class="gn">${num}</span><b>${title}</b>${sub?`<small>${sub}</small>`:''}${GWAVE}</button>`}
 const LEGEND=`<div class="glg"><span><i class="sw prog"></i>In Progress</span><span><i class="sw done"></i>Completed</span><span><i class="sw pend"></i>Pending</span></div>`;
-const stFmt=v=>{const x=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||'');return x?`${x[3]}/${x[2]}/${x[1]}`:'–'};
-function statusHTML(){
+const ST_PLAN=[{"t":"A. AIR CONDITIONING SYSTEM","g":[{"t":"A1  Inspection Pressure Test – Refrigerant Pipe (1st : Piping)","r":[["COL-SGR-ITP-AC-PT1-01","Refrigerant Pipe Pressure Test – Piping","FL.1"],["COL-SGR-ITP-AC-PT1-02","Refrigerant Pipe Pressure Test – Piping","FL.2"],["COL-SGR-ITP-AC-PT1-03","Refrigerant Pipe Pressure Test – Piping","FL.3"],["COL-SGR-ITP-AC-PT1-04","Refrigerant Pipe Pressure Test – Piping","FL.4"],["COL-SGR-ITP-AC-PT1-05","Refrigerant Pipe Pressure Test – Piping","FL.5"],["COL-SGR-ITP-AC-PT1-06","Refrigerant Pipe Pressure Test – Piping","FL.6"]]},{"t":"A2  Inspection Pressure Test – Refrigerant (2nd : Connected to System)","r":[["COL-SGR-ITP-AC-PT2-01","Refrigerant Pressure Test – System","FL.1"],["COL-SGR-ITP-AC-PT2-02","Refrigerant Pressure Test – System","FL.2"],["COL-SGR-ITP-AC-PT2-03","Refrigerant Pressure Test – System","FL.3"],["COL-SGR-ITP-AC-PT2-04","Refrigerant Pressure Test – System","FL.4"],["COL-SGR-ITP-AC-PT2-05","Refrigerant Pressure Test – System","FL.5"],["COL-SGR-ITP-AC-PT2-06","Refrigerant Pressure Test – System","FL.6"]]},{"t":"A3  Inspection Pressure Test – Condensate Drain Pipe","r":[["COL-SGR-ITP-AC-DR-01","Drain Pipe Test (Water / Gravity)","FL.1"],["COL-SGR-ITP-AC-DR-02","Drain Pipe Test (Water / Gravity)","FL.2"],["COL-SGR-ITP-AC-DR-03","Drain Pipe Test (Water / Gravity)","FL.3"],["COL-SGR-ITP-AC-DR-04","Drain Pipe Test (Water / Gravity)","FL.4"],["COL-SGR-ITP-AC-DR-05","Drain Pipe Test (Water / Gravity)","FL.5"],["COL-SGR-ITP-AC-DR-06","Drain Pipe Test (Water / Gravity)","FL.6"]]},{"t":"A4  Inspection for AHU / FCU Installation","r":[["COL-SGR-ITP-AC-AHU-01","AHU / FCU Installation Inspection","FL.1"],["COL-SGR-ITP-AC-AHU-02","AHU / FCU Installation Inspection","FL.2"],["COL-SGR-ITP-AC-AHU-03","AHU / FCU Installation Inspection","FL.3"],["COL-SGR-ITP-AC-AHU-04","AHU / FCU Installation Inspection","FL.4"],["COL-SGR-ITP-AC-AHU-05","AHU / FCU Installation Inspection","FL.5"],["COL-SGR-ITP-AC-AHU-06","AHU / FCU Installation Inspection","FL.6"]]}]},{"t":"B. VENTILATION / DUCTING SYSTEM","g":[{"t":"B1  Inspection for Ducting & Insulation Installation","r":[["COL-SGR-ITP-VT-DUI-01","Ducting & Insulation Installation Inspection","FL.1"],["COL-SGR-ITP-VT-DUI-02","Ducting & Insulation Installation Inspection","FL.2"],["COL-SGR-ITP-VT-DUI-03","Ducting & Insulation Installation Inspection","FL.3"],["COL-SGR-ITP-VT-DUI-04","Ducting & Insulation Installation Inspection","FL.4"],["COL-SGR-ITP-VT-DUI-05","Ducting & Insulation Installation Inspection","FL.5"],["COL-SGR-ITP-VT-DUI-06","Ducting & Insulation Installation Inspection","FL.6"]]},{"t":"B2  Air Flow Balancing Test Record","r":[["COL-SGR-ITP-VT-ABT-01","Air Flow Measurement & Balancing","FL.1"],["COL-SGR-ITP-VT-ABT-02","Air Flow Measurement & Balancing","FL.2"],["COL-SGR-ITP-VT-ABT-03","Air Flow Measurement & Balancing","FL.3"],["COL-SGR-ITP-VT-ABT-04","Air Flow Measurement & Balancing","FL.4"],["COL-SGR-ITP-VT-ABT-05","Air Flow Measurement & Balancing","FL.5"],["COL-SGR-ITP-VT-ABT-06","Air Flow Measurement & Balancing","FL.6"]]}]},{"t":"C. ELECTRICAL SYSTEM (POWER & CONTROL WIRE)","g":[{"t":"C1  Insulation Resistance for Power Wire Tested Record","r":[["COL-SGR-ITP-EE-IRP-01","Insulation Resistance Test – Power Wire","FL.1"],["COL-SGR-ITP-EE-IRP-02","Insulation Resistance Test – Power Wire","FL.2"],["COL-SGR-ITP-EE-IRP-03","Insulation Resistance Test – Power Wire","FL.3"],["COL-SGR-ITP-EE-IRP-04","Insulation Resistance Test – Power Wire","FL.4"],["COL-SGR-ITP-EE-IRP-05","Insulation Resistance Test – Power Wire","FL.5"],["COL-SGR-ITP-EE-IRP-06","Insulation Resistance Test – Power Wire","FL.6"]]},{"t":"C2  Insulation Resistance for Control Wire Tested Record","r":[["COL-SGR-ITP-EE-IRC-01","Control Wire Test (Lamp Test)","FL.1"],["COL-SGR-ITP-EE-IRC-02","Control Wire Test (Lamp Test)","FL.2"],["COL-SGR-ITP-EE-IRC-03","Control Wire Test (Lamp Test)","FL.3"],["COL-SGR-ITP-EE-IRC-04","Control Wire Test (Lamp Test)","FL.4"],["COL-SGR-ITP-EE-IRC-05","Control Wire Test (Lamp Test)","FL.5"],["COL-SGR-ITP-EE-IRC-06","Control Wire Test (Lamp Test)","FL.6"]]},{"t":"C3  Voltage / Phase for Power & Control Wire Tested Record","r":[["COL-SGR-ITP-EE-VP-01","Voltage / Phase & Phase Rotation Test","FL.1"],["COL-SGR-ITP-EE-VP-02","Voltage / Phase & Phase Rotation Test","FL.2"],["COL-SGR-ITP-EE-VP-03","Voltage / Phase & Phase Rotation Test","FL.3"],["COL-SGR-ITP-EE-VP-04","Voltage / Phase & Phase Rotation Test","FL.4"],["COL-SGR-ITP-EE-VP-05","Voltage / Phase & Phase Rotation Test","FL.5"],["COL-SGR-ITP-EE-VP-06","Voltage / Phase & Phase Rotation Test","FL.6"]]}]}];
+const stFmt=v=>{const x=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||'');return x?`${x[3]}/${x[2]}/${x[1].slice(2)}`:''};
+function formOfRfi(r){r=rfiNorm(r);if(/-AC-PT\d*-/.test(r))return 'PT';for(const id of TILE_ORDER){if(r.startsWith(rfiNorm(FORMS[id].rfi)))return id}return ''}
+function stData(){
   let m={};try{m=allStatus()}catch(e){}
-  const ord=Object.keys(FORMS);
-  const rows=Object.entries(m).sort((a,b)=>(ord.indexOf(a[1].form)-ord.indexOf(b[1].form))||a[0].localeCompare(b[0],'en',{numeric:true}));
-  const n={Passed:0,Failed:0,Waiting:0};rows.forEach(([,r])=>{if(n[r.status]!=null)n[r.status]++});
-  const stat=(k,l,c)=>`<div class="stc ${c}"><span>${l}</span><b>${k}</b></div>`;
-  const body=rows.length?rows.map(([rfi,r])=>`<div class="str"><span class="stn">${TILE_ORDER.indexOf(r.form)+1||'•'}</span><div class="stx"><b>${esc(rfi)}</b><small>${esc(TT2[r.form]||r.form)}</small></div><div class="std d1"><small>Test date</small>${stFmt(r.date)}</div><div class="std d2"><small>Sent</small>${stFmt(r.sent)}</div><span class="stp ${esc(r.status)}">${esc(r.status)}</span></div>`).join(''):`<div class="ste">ยังไม่มีข้อมูล — เริ่มกรอกฟอร์มแล้วสถานะจะแสดงที่นี่</div>`;
-  return `<section class="stw"><div class="sth"><div><i class="gbar"></i><h2>ITP Status</h2></div><button class="stb" data-act="itp7">↓ Excel</button></div>
-  <div class="sts">${stat(rows.length,'Total','t')}${stat(n.Passed,'Passed','p')}${stat(n.Failed,'Failed','f')}${stat(n.Waiting,'Waiting','w')}</div>
-  <div class="stl">${body}</div></section>`;
+  const known=new Set(),planBy={};let tot=0;
+  ST_PLAN.forEach(s=>s.g.forEach(g=>g.r.forEach(r=>{known.add(rfiNorm(r[0]));tot++;const f=formOfRfi(r[0]);if(f)planBy[f]=(planBy[f]||0)+1})));
+  const n={Passed:0,Failed:0,Waiting:0},per={};TILE_ORDER.forEach(id=>per[id]={Passed:0,Failed:0,Waiting:0});
+  let hit=0;
+  Object.entries(m).forEach(([k,r])=>{if(n[r.status]!=null){n[r.status]++;if(per[r.form])per[r.form][r.status]++}if(known.has(k))hit++});
+  return {m,known,tot,n,per,planBy,pending:Math.max(0,tot-hit),pct:tot?Math.round(n.Passed/tot*100):0};
 }
+const IC={
+ gauge:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14l4-4"/><path d="M3.3 17a9 9 0 1117.4 0"/></svg>',
+ ok:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg>',
+ clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+ warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17.3v.1"/></svg>',
+ gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>',
+ search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
+ table:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M10 10v10"/></svg>',
+ dash:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg>',
+ xls:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>'
+};
+function dbKpi(ic,cls,label,big,unit,badge,foot,f){
+  return `<div class="dk ${cls}"><div class="dk-h"><span>${label}</span><i class="dk-i">${ic}</i></div><div class="dk-v"><b>${big}</b>${unit?`<em>${unit}</em>`:''}${badge}</div><div class="dk-f"><small>${foot}</small><button data-stf="${f}" data-go="stw">See All →</button></div></div>`}
+function chartHTML(d){
+  const ymax=Math.max(6,...TILE_ORDER.map(id=>Math.max(d.planBy[id]||6,0)));
+  const step=ymax>6?4:2,ticks=[];for(let v=0;v<=ymax;v+=step)ticks.push(v);
+  const top=ticks[ticks.length-1]<ymax?ymax:ticks[ticks.length-1];
+  const cols=TILE_ORDER.map((id,i)=>{
+    const pl=Math.max(d.planBy[id]||6,d.per[id].Passed+d.per[id].Waiting+d.per[id].Failed),pe=Math.max(0,pl-d.per[id].Passed-d.per[id].Waiting-d.per[id].Failed);
+    const h=v=>(v/top*100).toFixed(2)+'%';
+    return `<div class="bc"><div class="bt"><div class="bs pa" style="height:${h(d.per[id].Passed)}"></div><div class="bs wa" style="height:${h(d.per[id].Waiting)}"></div><div class="bs fa" style="height:${h(d.per[id].Failed)}"></div><div class="bs pe" style="height:${h(pe)}"></div>
+      <div class="tip"><b>${esc(TT2[id])}</b><span><i class="dpa"></i>Passed <em>${d.per[id].Passed}</em></span><span><i class="dwa"></i>Waiting <em>${d.per[id].Waiting}</em></span><span><i class="dfa"></i>Failed <em>${d.per[id].Failed}</em></span><span><i class="dpe"></i>Pending <em>${pe}</em></span></div></div>
+      <div class="bl"><u>${i+1}</u><span>${TT2[id]}</span></div></div>`}).join('');
+  const yl=ticks.slice().reverse().map(t=>`<span style="bottom:${(t/top*100).toFixed(1)}%">${t}</span>`).join('');
+  return `<div class="dc dc-ch"><div class="dc-h"><h3>Test Progress by Type</h3><div class="lg2"><span><i class="dpa"></i>Passed</span><span><i class="dwa"></i>Waiting</span><span><i class="dfa"></i>Failed</span><span><i class="dpe"></i>Pending</span></div></div>
+   <div class="ch2"><div class="yl">${yl}</div><div class="bars">${cols}</div></div></div>`}
+function gaugeHTML(d){
+  const N=60,cx=150,cy=148,fill=Math.round(d.pct/100*N);let t='';
+  for(let i=0;i<=N;i++){const a=Math.PI*(1-i/N),c=Math.cos(a),sn=Math.sin(a),r1=96,r2=132;
+    t+=`<line x1="${(cx+r1*c).toFixed(1)}" y1="${(cy-r1*sn).toFixed(1)}" x2="${(cx+r2*c).toFixed(1)}" y2="${(cy-r2*sn).toFixed(1)}" class="${i<fill?'tf':'te'}"/>`}
+  const a=Math.PI*(1-d.pct/100),nx=cx+92*Math.cos(a),ny=cy-92*Math.sin(a);
+  const lab=d.pct>=80?'Excellent!':d.pct>=50?'Good!':d.pct>0?'In progress':'Not started';
+  return `<div class="dc dc-g"><div class="dc-h"><h3>Overall Progress</h3></div>
+   <div class="gl"><span><i class="dpa"></i>Passed</span><span><i class="dgr"></i>Remaining</span></div><div class="gd-lab">${lab}</div>
+   <svg viewBox="0 0 300 170" class="gsv">${t}<line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" class="nd"/><circle cx="${cx}" cy="${cy}" r="12" class="hb"/></svg>
+   <div class="gv"><b>${d.pct}%</b> Completed<small>${d.n.Passed} of ${d.tot} RFIs passed</small></div></div>`}
+function statusHTML(d){
+  const m=d.m,e=0;
+  const row=(rfi,item,fl,i,fid)=>{const r=m[rfiNorm(rfi)],st=r?r.status:'Pending';
+    const cs=Array(12).fill('');if(r){cs[5]=stFmt(r.date);cs[9]=stFmt(r.sent)}
+    return `<tr class="it" data-st="${st}" data-q="${esc((rfi+' '+(item||'')+' '+(fl||'')+' '+st).toLowerCase())}"><td class="c">${i}</td><td class="rf">${esc(rfi)}</td><td class="itm">${esc(item||'')}</td><td class="c fl">${esc(fl||'')}</td>${cs.map(v=>`<td class="dt">${v}</td>`).join('')}<td class="c"><span class="stp ${st}">${st}</span></td><td class="c">${fid?`<button class="act" data-form="${fid}" data-doc="all" title="เปิดฟอร์ม">↗</button>`:''}</td></tr>`};
+  const grpHead=(t,fid,a,b)=>`<tr class="gc2"><td colspan="18"><div class="gx2">${fid?`<span class="gn2">${TILE_ORDER.indexOf(fid)+1}</span>`:''}<b>${esc(t)}</b>${b?`<small>${a}/${b} done</small>`:''}${fid?`<button class="open" data-form="${fid}" data-doc="all">เปิดฟอร์ม <span>↗</span></button>`:''}</div></td></tr>`;
+  let body='';
+  ST_PLAN.forEach(s=>{body+=`<tr class="sc"><td colspan="18">${esc(s.t)}</td></tr>`;
+    s.g.forEach(g=>{const fid=formOfRfi(g.r[0][0]);const done=g.r.filter(r=>(m[rfiNorm(r[0])]||{}).status==='Passed').length;
+      body+=grpHead(g.t,fid,done,g.r.length);g.r.forEach((r,i)=>{body+=row(r[0],r[1],r[2],i+1,fid)})})});
+  const extra=Object.entries(m).filter(([k])=>!d.known.has(k));
+  if(extra.length){body+=`<tr class="sc"><td colspan="18">Other (not in plan)</td></tr>`;extra.forEach(([k,r],i)=>{body+=row(k,TT2[r.form]||r.form,'',i+1,r.form)})}
+  const chip=(k,l)=>`<button class="chipf${k==='All'?' on':''}" data-stf="${k}">${l}</button>`;
+  const pr='<th>PLAN</th><th>ACTUAL</th>';
+  return `<div class="dc dc-t" id="stw"><div class="dc-h"><h3>ITP Status</h3><div class="tb"><label class="sq">${IC.search}<input id="stQ" type="text" placeholder="Search RFI / item…" autocomplete="off"></label><button class="xb" data-act="itp7">${IC.xls} Excel</button></div></div>
+  <div class="chips2">${chip('All','All')}${chip('Passed','Passed')}${chip('Waiting','Waiting')}${chip('Failed','Failed')}${chip('Pending','Pending')}</div>
+  <div class="stsc"><table class="stt"><thead><tr><th rowspan="2" class="c">No.</th><th rowspan="2">RFI No.</th><th rowspan="2">Inspection / Test Item</th><th rowspan="2" class="c">Floor</th><th colspan="2">Work Completion</th><th colspan="2">Request for Inspection (RFI)</th><th colspan="2">Inspection / Test</th><th colspan="2">Re-Inspection</th><th colspan="2">Test Report Submission</th><th colspan="2">Approval / Sign-off</th><th rowspan="2">Status</th><th rowspan="2">Action</th></tr><tr>${pr}${pr}${pr}${pr}${pr}${pr}</tr></thead><tbody>${body}</tbody></table><div class="ste" id="stE" hidden>ไม่พบรายการที่ตรงกับตัวกรอง</div></div></div>`}
 function homeHTML(){
-  return `<div class="hm hm-wide"><div class="hcover"><div class="gh gh3"><img src="${HERO2}" alt="Sky Ground Residence 38"><div class="gh-top"><div class="hm-proj">SKY GROUND RESIDENCE 38</div></div>
-  <div class="gh-txt"><div class="h1">ITP</div><div class="h2">Inspection &amp; Test Record</div><i class="gbar lt"></i><div class="h3">M&amp;E System</div></div></div>
-  <div class="gg">${TILE_ORDER.map((id,i)=>{const f=FORMS[id];return gcard(`data-form="${id}" data-doc="all"`,i+1,TT2[id],formStatus(id),'')}).join('')}</div></div>${statusHTML()}</div>`}
+  const d=stData(),now=new Date(),h=now.getHours();
+  const hi=h<12?'Good Morning':h<17?'Good Afternoon':'Good Evening';
+  const dt=now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const who=(CFG.tester||'').trim();
+  const pc=v=>d.tot?Math.round(v/d.tot*100):0;
+  const up='<span class="bd up">↗ ';
+  return `<div class="db"><div class="db-sh">
+  <header class="db-nav"><div class="db-br"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20L12 5l7 15M8.5 14h7"/></svg></i><b>ITP<span class="hs"> · Sky Ground Residence 38</span></b></div>
+   <nav class="db-pills">${TILE_ORDER.map((id,i)=>`<button class="pl ${formStatus(id)}" data-form="${id}" data-doc="all"><u>${i+1}</u><span>${TT2[id]}</span><i class="sd" title="${formStatus(id)}"></i></button>`).join('')}</nav>
+   <div class="db-r"><button class="rb" data-go="stQ" aria-label="search">${IC.search}</button><button class="rb" data-act="settings" aria-label="settings">${IC.gear}</button></div></header>
+  <section class="db-hero"><img src="${HERO}" alt=""><div class="hv"><b>Sky Ground Residence 38</b><span>M&amp;E ITP · Coral Life Co., Ltd.</span></div></section>
+  <section class="db-top"><div class="db-gr"><h1>${hi}${who?' '+esc(who):''}</h1><p>Today is ${dt}</p><p class="pj">Sky Ground Residence 38 · M&amp;E ITP</p></div>
+   ${dbKpi(IC.gauge,'k1','Completion Rate',d.pct+'%','',`${up}${d.n.Passed}/${d.tot}</span>`,'Passed ÷ Total RFI','All')}
+   ${dbKpi(IC.ok,'k2','Passed',d.n.Passed,'',`${up}${pc(d.n.Passed)}%</span>`,'of '+d.tot+' RFIs','Passed')}
+   ${dbKpi(IC.clock,'k3','Waiting',d.n.Waiting,'',`<span class="bd wt">${pc(d.n.Waiting)}%</span>`,'รอผลการตรวจสอบ','Waiting')}
+   ${dbKpi(IC.warn,'k4','Failed',d.n.Failed,'',`<span class="bd dn">${pc(d.n.Failed)}%</span>`,'ไม่ผ่านการตรวจสอบ','Failed')}</section>
+  <section class="db-mid">${gaugeHTML(d)}</section>
+  ${statusHTML(d)}</div></div>`}
 function openDocs(id){const f=FORMS[id];$('#docBox').innerHTML=`<div class="mh"><b>${f.name}</b><button class="btn sm" data-act="close">ปิด</button></div><div class="hint" style="margin:-4px 0 10px">${f.th}</div><div class="mlist"><div class="sub" style="border:0"><button class="si all" data-form="${id}" data-doc="all"><span class="sd"></span><span class="st"><b>เปิดทั้งชุด</b><em>กรอกทุกเอกสารในหน้าเดียว</em></span><span class="ar">›</span></button>${f.sheets.map((sh,i)=>`<button class="si" data-form="${id}" data-doc="${sh.id}"><span class="sd">${i+1}</span><span class="st"><b>${sh.name}</b><em>${sh.doc}</em></span><span class="ar">›</span></button>`).join('')}</div></div>`;$('#mDocs').classList.add('on')}
 const SHORT={IRP:'Power Wire IR Test',IRC:'Control Wire IR Test',DR:'Drain Pipe Test',PT:'Refrigerant Pressure Test',DUI:'Ducting & Insulation',TR:'AC Mini Split Test'};
 let VIEW='home';
@@ -1309,16 +1445,23 @@ async function downloadBlob(p){if(!p)return;if(!p.itp&&S){try{markSent()}catch(e
 
 /* =================== SEND =================== */
 const subject=()=>`[ITP] ${form().name} – ${S.h.rfi} – ${fmtD(S.h.date)}`;
-function summaryText(){const f=form(),h=S.h,{c,ov}=counts();
+let LAST_LINKS=null;
+const linkKey=()=>[S.form,S.h&&S.h.rfi,S.h&&S.h.date].join('|');
+function linkBlock(){const L=LAST_LINKS;if(!L||L.key!==linkKey())return [];
+  return ['',...(L.pdf?['📄 PDF: '+L.pdf]:[]),...(L.xlsx?['📊 Excel: '+L.xlsx]:[]),...(L.folder?['📁 โฟลเดอร์รายงานทั้งหมด: '+L.folder]:[]),...(L.app?['📝 เปิดฟอร์ม: '+L.app]:[])]}
+function refreshShareLinks(){const t=summaryText();
+  $('#aLine').href='https://line.me/R/share?text='+encodeURIComponent(t);
+  const hasL=LAST_LINKS&&LAST_LINKS.key===linkKey();
+  $('#aMail').href=`mailto:${encodeURIComponent(CFG.to)}?${CFG.cc?'cc='+encodeURIComponent(CFG.cc)+'&':''}subject=${encodeURIComponent(subject())}&body=${encodeURIComponent(t+(hasL?'':'\n\n(แนบไฟล์ PDF)'))}`}
+function summaryText(withLinks=true){const f=form(),h=S.h,{c,ov}=counts();
   return [`📋 ${f.name}`,`Project: ${h.project}`,`RFI No.: ${h.rfi}`,`Location: ${h.locFrom||'-'} → ${h.locTo||'-'}  |  FL/Grid: ${[h.floor,h.grid].filter(Boolean).join(' / ')||'-'}`,`Date: ${fmtD(h.date)} ${h.time||''}`,
-    `เอกสาร: ${f.sheets.filter(s=>S.sel[s.id]).map(s=>s.name).join(', ')}`,`ผล: ✅ Passed ${c.P} | ❌ Failed ${c.F} | N/A ${c.NA}`,...ov,`รูปถ่าย: ${filledPh().length} รูป`,`Tested by: ${S.sig.t.n||'-'}`,...(S.comment?[`Comment: ${S.comment}`]:[])].join('\n')}
+    `เอกสาร: ${f.sheets.filter(s=>S.sel[s.id]).map(s=>s.name).join(', ')}`,`ผล: ✅ Passed ${c.P} | ❌ Failed ${c.F} | N/A ${c.NA}`,...ov,`รูปถ่าย: ${filledPh().length} รูป`,`Tested by: ${S.sig.t.n||'-'}`,...(S.comment?[`Comment: ${S.comment}`]:[]),...(withLinks?linkBlock():[])].join('\n')}
 const hasBackend=()=>IN_GAS||!!CFG.gasUrl;
 function sendMsg(cls,html){$('#sendMsg').innerHTML=`<div class="msg ${cls}">${html}</div>`}
 async function openSend(){
   $('#mSend').classList.add('on');$('#sendMsg').innerHTML='';
   $('#mTo').value=CFG.to;$('#mCc').value=CFG.cc;$('#mEm').checked=CFG.email;$('#mLn').checked=CFG.line;
-  $('#aLine').href='https://line.me/R/share?text='+encodeURIComponent(summaryText());
-  $('#aMail').href=`mailto:${encodeURIComponent(CFG.to)}?${CFG.cc?'cc='+encodeURIComponent(CFG.cc)+'&':''}subject=${encodeURIComponent(subject())}&body=${encodeURIComponent(summaryText()+'\n\n(แนบไฟล์ PDF)')}`;
+  refreshShareLinks();
   $('#autoNote').textContent=hasBackend()?'อีเมลแนบ PDF + Excel · ไฟล์เก็บใน Google Drive · LINE ส่งข้อความ + ลิงก์ PDF / Excel':'ยังไม่ได้เชื่อม Apps Script';
   ['bAuto','bShare','bDl'].forEach(id=>$('#'+id).disabled=true);
   try{await makePdf();
@@ -1333,15 +1476,20 @@ async function autoSend(){
   if(CFG.email&&!CFG.to)return sendMsg('err','ใส่อีเมลผู้รับก่อน');
   try{const pdf=await makePdf();busy('กำลังส่ง…');
     let xl=null;try{xl=await makeXlsx()}catch(e){console.warn(e)}busy('กำลังส่ง…');
-    const payload={xlsx:xl?await b64(xl.blob):'',xlsxName:xl?xl.name:'',fileName:pdf.name,pdf:await b64(pdf.blob),to:CFG.to,cc:CFG.cc,subject:subject(),summary:summaryText(),sendEmail:CFG.email,sendLine:CFG.line,key:CFG.key||''};
+    const payload={xlsx:xl?await b64(xl.blob):'',xlsxName:xl?xl.name:'',fileName:pdf.name,pdf:await b64(pdf.blob),to:CFG.to,cc:CFG.cc,subject:subject(),summary:summaryText(false),sendEmail:CFG.email,sendLine:CFG.line,key:CFG.key||''};
     const r=IN_GAS?await gasRun(payload):await (await fetch(CFG.gasUrl,{method:'POST',body:JSON.stringify(payload)})).json();
     if(!r||!r.ok)throw new Error(r&&r.error||'ไม่ได้รับผลตอบกลับจากเซิร์ฟเวอร์');
     if(r.email||r.line)LS.set('itp_done_'+S.form,String(Date.now()));if(r.email||r.line){try{markSent()}catch(e){}}
     const lines=[];
     if(CFG.email)lines.push(r.email?`✅ ส่งอีเมลถึง ${esc(CFG.to)} แล้ว`:`❌ อีเมล: ${esc(r.emailError||'ไม่สำเร็จ')}`);
     if(CFG.line)lines.push(r.line?'✅ แจ้งกลุ่ม LINE แล้ว':`❌ LINE: ${esc(r.lineError||'ไม่สำเร็จ')}`);
-    if(r.url)lines.push(`📄 <a href="${esc(r.url)}" target="_blank" rel="noopener">เปิด PDF ใน Google Drive</a>`);
-    if(r.xlsxUrl)lines.push(`📊 <a href="${esc(r.xlsxUrl)}" target="_blank" rel="noopener">เปิด Excel ใน Google Drive</a>`);
+    LAST_LINKS={key:linkKey(),pdf:r.url||'',xlsx:r.xlsxUrl||'',folder:r.folderUrl||'',app:r.appUrl||(CFG.gasUrl||'')};refreshShareLinks();
+    const A=(u,t)=>`<a href="${esc(u)}" target="_blank" rel="noopener">${t}</a>`;
+    if(r.url)lines.push('📄 '+A(r.url,'เปิด PDF ใน Google Drive'));
+    if(r.xlsxUrl)lines.push('📊 '+A(r.xlsxUrl,'เปิด Excel ใน Google Drive'));
+    if(r.folderUrl)lines.push('📁 '+A(r.folderUrl,'เปิดโฟลเดอร์ ITP Test Reports'));
+    if(LAST_LINKS.app)lines.push('📝 '+A(LAST_LINKS.app,'เปิดฟอร์ม ITP Test Form'));
+    lines.push('<span class="hint">ปุ่ม "เปิด LINE" และ "เปิดแอปอีเมล" ด้านล่างจะแนบลิงก์ชุดนี้ให้อัตโนมัติ</span>');
     sendMsg((CFG.email&&!r.email)||(CFG.line&&!r.line)?'err':'ok',lines.join('<br>'));
   }catch(e){sendMsg('err','ส่งไม่สำเร็จ: '+esc(e.message))}finally{busy(false)}
 }
@@ -1431,6 +1579,31 @@ function saveSettings(){CFG.tester=$('#sTester').value.trim();CFG.to=$('#sTo').v
 
 loadForm(FORMS[LS.get('itp_last')]?LS.get('itp_last'):'IRP');
 render();
+</script>
+<script>
+(function(){
+ function apply(){
+  const tb=document.querySelector('.stt tbody');if(!tb)return;
+  const q=((document.getElementById('stQ')||{}).value||'').trim().toLowerCase();
+  const a=document.querySelector('.chipf.on'),F=a?a.dataset.stf:'All';
+  const rows=[].slice.call(tb.rows);let shown=0;
+  rows.forEach(tr=>{if(tr.classList.contains('it')){const ok=(F==='All'||tr.dataset.st===F)&&(!q||tr.dataset.q.indexOf(q)>-1);tr.hidden=!ok;if(ok)shown++}});
+  let any=false;
+  for(let i=rows.length-1;i>=0;i--){const tr=rows[i];
+   if(tr.classList.contains('it')){if(!tr.hidden)any=true}
+   else if(tr.classList.contains('gc2')){tr.hidden=!any;if(F==='All'&&!q)tr.hidden=false}
+   else if(tr.classList.contains('sc')){tr.hidden=!any;if(F==='All'&&!q)tr.hidden=false}
+   if(tr.classList.contains('gc2')||tr.classList.contains('sc')){if(tr.classList.contains('sc'))any=false}}
+  const e=document.getElementById('stE');if(e)e.hidden=shown>0;
+ }
+ document.addEventListener('input',e=>{if(e.target&&e.target.id==='stQ')apply()});
+ document.addEventListener('click',e=>{
+  const f=e.target.closest('[data-stf]');
+  if(f){document.querySelectorAll('.chipf').forEach(c=>c.classList.toggle('on',c.dataset.stf===f.dataset.stf));apply()}
+  const g=e.target.closest('[data-go]');
+  if(g){const el=document.getElementById(g.dataset.go);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});if(el.tagName==='INPUT')setTimeout(()=>el.focus({preventScroll:true}),350)}}
+ });
+})();
 </script>
 </body>
 </html>
